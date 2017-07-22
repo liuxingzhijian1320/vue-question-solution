@@ -1,6 +1,6 @@
-# music
 
-> A Vue.js project
+
+> A common solution for mobile(vue)
 
 ## Build Setup
 
