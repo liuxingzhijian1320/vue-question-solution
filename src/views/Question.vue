@@ -30,6 +30,7 @@
           { name: 'andiosfixed', title: '安卓ios-fixed的兼容' },
           { name: 'vuexmodal', title: 'vuex modal' },
           { name: 'tweenSimple', title: 'tween 数字动画效果' },
+          { name: 'TweenMany', title: 'tween 多个数字动画效果' },
           { name: 'progress', title: 'progress 进度条' },
           { name: 'password', title: 'password 密码框' },
           { name: 'effect', title: 'effect css效果' },

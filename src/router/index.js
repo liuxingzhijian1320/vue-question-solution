@@ -24,7 +24,10 @@ const VuexModal = resolve =>
   import ('../views/vuex_modal/vuex.modal');
 
 const TweenSimple = resolve =>
-  import ('../views/tween/tween-simple');
+  import ('../views/tween/tween.simple');
+
+const TweenMany = resolve =>
+  import ('../views/tween/tween.many');
 
 const progress = resolve =>
   import ('../views/progress/progress');
@@ -131,6 +134,13 @@ const router = new Router({
         title: 'tween.js数字动画效果',
       },
       component: TweenSimple
+    },{
+      path: '/TweenMany',
+      name: 'TweenMany',
+      meta: {
+        title: 'tween.js多个数字动画效果',
+      },
+      component: TweenMany
     },{
       path: '/progress',
       name: 'progress',
