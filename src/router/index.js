@@ -65,6 +65,12 @@ const bscrollrefresh = resolve =>
 const navigatoruserAgent = resolve =>
   import ('../views/navigator_userAgent/navigator.userAgent');
 
+const selectSearch = resolve =>
+  import ('../views/selectSearch/select.search');
+
+const fadeInNav = resolve =>
+  import ('../views/fadeIn.nav/fadeIn.nav');
+
 
 
 import test from '../views/BScroll/test'
@@ -232,6 +238,20 @@ const router = new Router({
         title: 'test test',
       },
       component: test,
+    },{
+      path: '/selectSearch',
+      name: 'selectSearch',
+      meta: {
+        title: '即实搜索',
+      },
+      component: selectSearch,
+    },{
+      path: '/fadeInNav',
+      name: 'fadeInNav',
+      meta: {
+        title: '渐变的nav',
+      },
+      component: fadeInNav,
     },{
 	    path:'*',
       redirect: {

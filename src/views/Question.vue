@@ -44,6 +44,8 @@
           { name: 'test', title: 'test1' },
           { name: 'bscrollrefresh', title: '上拉刷新下拉加载' },
           { name: 'navigatoruserAgent', title: '浏览器版本' },
+          { name: 'selectSearch', title: '即实搜索' },
+          { name: 'fadeInNav', title: '渐变的nav' },
         ]
       }
     },
