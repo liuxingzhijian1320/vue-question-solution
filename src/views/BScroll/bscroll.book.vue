@@ -27,6 +27,7 @@
               @touchmove.stop.prevent="onShortcutTouchMove"
               :class="{'current':currentIndex===index}">{{item.title}}
 
+
           </li>
         </ul>
       </div>
@@ -1402,108 +1403,6 @@
             ]
           },
           {
-            id: 6,
-            title: "V",
-            list: [
-              {
-                title: "背景架",
-                subtitle: "专业调配 质量保证",
-              },
-              {
-                title: "主题布幔",
-                subtitle: "丝质柔软 色彩鲜艳",
-              },
-              {
-                title: "欧式吊幔",
-                subtitle: "低调奢华 高端品质",
-              },
-              {
-                title: "主题背景板",
-                subtitle: "高贵圣洁 华丽梦幻",
-              },
-              {
-                title: "梦幻logo字母",
-                subtitle: "时尚新颖 温馨梦幻",
-              },
-              {
-                title: "复古长条桌",
-                subtitle: "典雅简约 华丽低调",
-              },
-              {
-                title: "欧式雕花圆桌",
-                subtitle: "精美雕花 端庄大气",
-              },
-              {
-                title: "欧式实木雕花桌",
-                subtitle: "浓厚的复古贵族气息",
-              },
-              {
-                title: "梦幻水晶灯",
-                subtitle: "奢华璀璨 高贵典雅",
-              },
-              {
-                title: "复古首饰盒",
-                subtitle: "蕴含着典雅的贵族风情",
-              },
-              {
-                title: "精致甜品架",
-                subtitle: "贴合主题 精致浪漫",
-              },
-              {
-                title: "精致甜品盘",
-                subtitle: "贴合主题 精致浪漫",
-              },
-              {
-                title: "欧式雕花茶具",
-                subtitle: "彰显欧式贵族风情",
-              },
-              {
-                title: "欧式雕花椅",
-                subtitle: "色调高雅 华丽复古",
-              },
-              {
-                title: "复古小提琴",
-                subtitle: "优雅别致 精美独特",
-              },
-              {
-                title: "欧式唯美花艺",
-                subtitle: "色彩搭配 增添氛围",
-              },
-              {
-                title: "欧式罗马花盆",
-                subtitle: "高雅奢华 彰显品味",
-              },
-              {
-                title: "欧式罗马柱",
-                subtitle: "尽显欧式奢华与典雅",
-              },
-              {
-                title: "复古书本",
-                subtitle: "复古文艺 经典传承",
-              },
-              {
-                title: "梦幻蜡烛",
-                subtitle: "温馨时尚 精致梦幻",
-              },
-              {
-                title: "梦幻纱幔",
-                subtitle: "唯美梦幻 轻盈飘逸",
-              },
-              {
-                title: "优质插花网格",
-                subtitle: "造型多变 主题搭配",
-              },
-              {
-                title: "浪漫瀑布花",
-                subtitle: "欧式浪漫 灵动优雅",
-              },
-              {
-                title: "浪漫花瓣",
-                subtitle: "营造气氛 增加层次",
-              }
-            ]
-          },
-          {
             id: 7,
             title: "W",
             list: [
@@ -1608,7 +1507,7 @@
     },
     methods: {
       onShortcutTouchEnd(e){
-        console.info('离开屏幕')
+        //console.info('离开屏幕')
         this.centerTitleShow = false;
       },
       onShortcutTouchStart(e){
@@ -1642,7 +1541,7 @@
 //        this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0) //0表示缓动动画时间
 //      },
       _scrollTo(index){
-        console.info('index',index)
+        //console.info('index', index)
         if (!index && index !== 0) {
           return
         }
@@ -1754,7 +1653,7 @@
     transform: translate(-50%, -50%);
     width: 1.5rem;
     height: 1.5rem;
-    background-color: rgba(#000,.7);
+    background-color: rgba(#000, .7);
     text-align: center;
     line-height: 1.5rem;
     font-size: 0.6rem;
@@ -1813,7 +1712,7 @@
         font-size: $font-size-small;
         &.current {
           color: $color-theme;
-          font-size:0.3rem;
+          font-size: 0.3rem;
         }
       }
     }

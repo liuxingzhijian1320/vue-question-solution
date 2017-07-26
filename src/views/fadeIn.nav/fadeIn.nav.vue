@@ -54,9 +54,8 @@
           return this.startBg;
         } else if (this.scrollY > -200 && this.scrollY < 0) {
           this.op = Math.abs(this.scrollY / 100 / 2); //目的是opacity为1，这有个疑问：为什么rgba不能用？
-          console.info(`backgroundColor:rgba(red,${this.op.toFixed(2)})`, `fontSize:${this.op.toFixed(2)} * 0.7rem`)
+          console.info(`backgroundColor:rgba(red,${this.op.toFixed(2)})`)
 //          return `backgroundColor:rgba(red,${this.op.toFixed(2)})`
-//          return `fontSize:${op * 1}rem`
           return `backgroundColor:yellow;opacity:${this.op.toFixed(2)}`
         }
         return `backgroundColor:yellow`
