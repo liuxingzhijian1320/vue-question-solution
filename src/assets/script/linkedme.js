@@ -15,14 +15,14 @@ defaultData.stage = "阶段名称"; // 自定义深度链接阶段，多个用�
 defaultData.channel = "渠道名称"; // 自定义深度链接渠道，多个用逗号分隔，【可选】
 defaultData.tags = "标签名称"; // 自定义深度链接标签，多个用逗号分隔，【可选】
 defaultData.ios_custom_url = ""; // 自定义iOS平台下App的下载地址，如果是AppStore的下载地址可以不用填写，【可选】
-defaultData.android_custom_url = "http://a.app.qq.com/o/simple.jsp?pkgname=com.halobear.weddingvideo";// 自定义安卓平台下App的下载地址，【可选】
+defaultData.android_custom_url = "http://a.app.qq.com/o/simple.jsp?pkgname=com.halobear.weddingvideoo";// 自定义安卓平台下App的下载地址，【可选】
 // 下面是自定义深度链接参数，用户点击深度链接打开app之后，params参数将被带入app
 // 比如详情页面的参数，可以写进去，这样唤起app后可直接跳转到详情页【可选】
 
 export default async function (para) {
   await linkedmePromise
-  if(linkedme.LinkedME_KEY!=="db5b24273ab9983627fafc024169783f"){
-    linkedme.init("db5b24273ab9983627fafc024169783f", {type: linkedmeType}, null);
+  if(linkedme.LinkedME_KEY!=="db5b24273ab9983627fafc024169783ff"){
+    linkedme.init("db5b24273ab9983627fafc024169783ff", {type: linkedmeType}, null);
 
   }
   para=para||{}
