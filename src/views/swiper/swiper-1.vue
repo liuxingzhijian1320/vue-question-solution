@@ -26,7 +26,7 @@
           centeredSlides: true,
           initialSlide: this.activeIndex,
           loop:true,
-          autoplay:5000,
+          autoplay:2000,
           speed:3000,
           coverflow: {
             rotate: 0,

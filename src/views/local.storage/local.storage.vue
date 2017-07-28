@@ -4,7 +4,7 @@
     <form class="form" @submit.prevent>
       <div class="input-div">
         <label for="name">账户</label>
-        <input type="text" @focus="change" id="name" class="input" name="name" v-model.trim="formData.name" placeholder="请输入收件人姓名">
+        <input type="text"  id="name" class="input" name="name" v-model.trim="formData.name" placeholder="请输入收件人姓名">
       </div>
 
       <div class="input-div">
@@ -19,8 +19,21 @@
       </div>
 
       <button class="save" type="submit" @click="save(formData)">保存信息</button>
+      <button class="save" type="button" @click="clear">清除</button>
+
+
+
+      <div class="msg">
+
+        <h4>储存信息</h4>
+        {{get_localstorge}}
+      </div>
+
 
     </form>
+
+
+
   </div>
 </template>
 <script>
@@ -43,6 +56,7 @@
         if (this.Validate(formData)) {
           console.info('保存成功formData', formData)
           store.set('zhooson_user_token', formData)
+          window.location.reload();
         }
       },
       Validate(formData){
@@ -62,13 +76,12 @@
           return true
         }
       },
-      change(e){
-        console.info(11)
+      clear(){
+        store.set('zhooson_user_token', '')
+        window.location.reload();
       }
     },
-    created(){
-      console.info(this.get_localstorge)
-    }
+
   }
 </script>
 <style lang="scss" scoped>
@@ -89,6 +102,11 @@
       .save {
 
       }
+    }
+    .msg {
+      height: 2rem;
+      width:100%;
+      background-color: gray;
     }
   }
 

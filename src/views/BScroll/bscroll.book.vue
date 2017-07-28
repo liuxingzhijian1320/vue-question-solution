@@ -11,7 +11,7 @@
         <li v-for="group in data" class="list-group" ref="listGroup">
           <h2 class="list-group-title">{{group.title}}</h2>
           <ul>
-            <li class="list-group-item" v-for="item in group.list">
+            <li class="list-group-items" v-for="item in group.list">
               <div class="avatar"></div>
               <span class="name">{{item.title}}</span>
             </li>
@@ -1676,7 +1676,7 @@
         color: $color-text-l;
         background: $color-highlight-background;
       }
-      .list-group-item {
+      .list-group-items {
         display: flex;
         align-items: center;
         padding: 0.4rem 0 0 0.6rem;

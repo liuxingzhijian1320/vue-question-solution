@@ -102,7 +102,6 @@
 <style lang="scss" scoped>
   .tweenmany {
     padding: 0.2rem 0.3rem;
-    width: 100%;
     min-height: 100vh;
   }
   .btn-group {

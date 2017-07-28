@@ -1,11 +1,13 @@
 <template>
   <div class="question">
-    <div class="title">移动端常见的问题</div>
+    <div class="title" :class="{startBg:startBg}" :style="changeBg">移动端常见的问题</div>
     <div class="content">
       <scroll ref="questionRef"
               :data="data"
               :probe-type="probeType"
               class="question-scroll"
+              :listen-scroll="listenScroll"
+              @scroll="scroll"
       >
         <ul class="question-ul">
           <li v-for="(item,index) in data">
@@ -23,6 +25,10 @@
     data(){
       return {
         probeType: 3,
+        listenScroll: true,
+        scrollY: 0,
+        op: '',
+        startBg:true,
         data: [
           { name: 'stickyfooter', title: 'Sticky Footer(一)' },
           { name: 'stickyfooter2', title: 'Sticky Footer(二)' },
@@ -31,7 +37,8 @@
           { name: 'vuexmodal', title: 'vuex modal' },
           { name: 'tweenSimple', title: 'tween 数字动画效果' },
           { name: 'TweenMany', title: 'tween 多个数字动画效果' },
-          { name: 'progress', title: 'progress 进度条' },
+          { name: 'progress', title: 'progress 进度条111' },
+          { name: 'progressbootstrap', title: 'progress 进度条222' },
           { name: 'password', title: 'password 密码框' },
           { name: 'effect', title: 'effect css效果' },
           { name: 'localstorage', title: 'localstorage store/expire 储存信息的插件' },
@@ -46,11 +53,36 @@
           { name: 'navigatoruserAgent', title: '浏览器版本' },
           { name: 'selectSearch', title: '即实搜索' },
           { name: 'fadeInNav', title: '渐变的nav' },
+          { name: 'toggle', title: '上下收缩' },
+          { name: 'video', title: '视频组件' },
         ]
+      }
+    },
+    methods:{
+      scroll(pos){
+        this.scrollY = pos.y;
+        //console.info(pos.y)
+      }
+    },
+    computed: {
+      changeBg(){
+        if (this.scrollY >= 0) {
+          this.startBg = true;
+          return this.startBg;
+        } else if (this.scrollY > -200 && this.scrollY < 0) {
+          this.op = Math.abs(this.scrollY / 100 / 2); //目的是opacity为1，这有个疑问：为什么rgba不能用？
+          //console.info(`backgroundColor:rgba(red,${this.op.toFixed(2)})`)
+//          return `backgroundColor:rgba(red,${this.op.toFixed(2)})`
+          return `backgroundColor:yellow;opacity:${this.op.toFixed(2)};color:red`
+        }
+        return `backgroundColor:yellow;color:red`
       }
     },
     components: {
       Scroll
+    },
+    activated(){
+      this.$refs.questionRef.refresh()
     }
 
   }
@@ -67,7 +99,7 @@
     }
     .content {
       position: absolute;
-      top: 0.75rem;
+      top: 1rem;
       bottom: 0;
       left: 0;
       overflow: hidden;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <keep-alive exclude="question">
       <router-view></router-view>
     </keep-alive>
     <modal></modal>
@@ -18,6 +18,11 @@
 </script>
 
 <style lang='scss'>
+  @import './assets/style/fonts.css';
+  @import './assets/style/reset.scss';
+  @import './assets/style/mixin.scss';
+  @import './assets/style/func.css';
+
   body {
     font-size: 0.28rem;
     &.full-body{

@@ -25,6 +25,35 @@ $black: #333333;
   }*/
 }
 
+@mixin border-1px($color) {
+  /*position: relative;*/
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    content: '';
+    border-top: 1px solid $color;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:1.5) {
+  .border-1px {
+    &::after {
+      transform: scaleY(0.7);
+    }
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+  .border-1px {
+    &::after {
+      transform: scaleY(0.5);
+    }
+  }
+}
+
 
 /*ipad 竖屏*/
 
@@ -41,19 +70,21 @@ $black: #333333;
   transform: translate(-50%, -50%);
 }
 
-
-
-@mixin hbPlaceholder(){
-  &::-webkit-input-placeholder { /* WebKit browsers */
+@mixin hbPlaceholder() {
+  &::-webkit-input-placeholder {
+    /* WebKit browsers */
     @content;
   }
-  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
     @content;
   }
-  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
     @content;
   }
-  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
     @content;
   }
   //@at-root{
