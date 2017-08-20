@@ -11,6 +11,9 @@
   </div>
 </template>
 <script>
+  let sw = import('swiper')
+//  console.info('sw',typeof sw)
+//  import 'swiper/dist/css/swiper.min.css'
   export default {
     data(){
       return {
@@ -18,8 +21,9 @@
       }
     },
     methods: {
-      _initSwiper() {
-        const container = this.$refs.swiper;
+      async _initSwiper() {
+      let Swiper = await sw;
+         const  container = this.$refs.swiper;
         const config = {
           effect: 'coverflow',
           slidesPerView: 'auto',
@@ -48,6 +52,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '../../../node_modules/swiper/dist/css/swiper.min.css';
   .swiper-1 {
     width:100%;
     //padding-top:1rem;

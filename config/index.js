@@ -23,11 +23,32 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 3246,
+    port: 2344,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      firstProxy: {
+        target: 'http://webapi.rightpsy.com/',
+        filter(pathname, req) {
+          //console.info('firstProxy',req)
+          const isApi = pathname.indexOf('/api') == 0;
+          const ret = isApi;
+          return ret;
+        },
+        changeOrigin: true,
+      },
+      // secondProxy: {
+      //   target: 'http://wedding.com/',
+      //   filter(pathname, req) {
+      //     //console.info('secondProxy',req)
+      //     const isApi = pathname.indexOf('/halo') == 0;
+      //     const ret = isApi;
+      //     return ret;
+      //   },
+      //   changeOrigin: true,
+      // },
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

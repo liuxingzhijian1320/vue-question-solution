@@ -26,21 +26,21 @@
     data(){
       return {
         num: 50,
-        min:0,
-        max:1000,
+        min: 0,
+        max: 1000,
       }
     },
     computed: {
       progressClass() {
         let width;
-        if(this.max > this.num){
+        if (this.max > this.num) {
           width = (this.num / this.max) * 6
-        }else if(this.max <= this.num) {
-           width = 6
+        } else if (this.max <= this.num) {
+          width = 6
         }
-        console.info('computed',width)
+        console.info('computed', width)
         return {
-          width:`${width}rem`,
+          width: `${width}rem`,
         }
       },
 
@@ -48,12 +48,12 @@
     },
     methods: {
       add(){
-        this.num  += 500;
-        console.info('add',width)
+        this.num += 500;
+        console.info('add', width)
       },
       desc(){
-        this.num  -= 200;
-        console.info('desc',width)
+        this.num -= 200;
+        console.info('desc', width)
       }
     },
 
@@ -90,17 +90,18 @@
         background: #fff;
         transition: all 5s ease-in;
         /*background-image: -webkit-linear-gradient(180deg, rgb(181, 147, 88) 1%, rgb(233, 214, 174) 100%);*/
-        background-image: repeating-linear-gradient(-45deg, #fff, #fff 1px, rgba(255, 34, 93, 0.25) 1px, rgba(255, 34, 93, 0.25) 2px, #fff 2px);
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        background-size: 0.3rem 0.3rem; //修改的
         animation: 2s progress-bar-stripes linear infinite normal;
         .increamem {
           display: inline-block;
           position: absolute;
-          height:0.3rem;
-          padding:0 0.1rem;
-          width:0.6rem;
+          height: 0.3rem;
+          padding: 0 0.1rem;
+          width: 0.6rem;
           background-color: red;
-          font-size:0.2rem;
-          top:-1rem;
+          font-size: 0.2rem;
+          top: -1rem;
           right: 0;
         }
       }

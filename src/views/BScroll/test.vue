@@ -337,6 +337,7 @@
       scroll(pos){ //监听滚动事件，实时获取到y轴滚动的距离
         this.getHeaderHeight();
         this.scrollY = pos.y
+        console.info(pos.y)
         //console.info(-pos.y,this.headerRealHeight)
           if(this.headerRealHeight <= -pos.y){
             this.menuFixTop = true

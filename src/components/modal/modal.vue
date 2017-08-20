@@ -7,6 +7,7 @@
 import countdown from './countdown/countdown.vue';
 import warning from './expo/warning.vue';
 import getpocketmodal from './getpocket/getpocket.modal.vue';
+import vuexmodalstop from './reserve.modal/reserve.modal.vue';
 
 import {
   mapState,
@@ -39,6 +40,7 @@ export default {
     countdown: countdown,
     warning: warning,
     getpocketmodal: getpocketmodal,
+    vuexmodalstop: vuexmodalstop,
 
   },
 };

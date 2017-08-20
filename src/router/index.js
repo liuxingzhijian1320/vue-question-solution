@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '../store';
+import store from '../store'; //vuex
 import setTitle from '../assets/script/settitle.js'; // 设置页面标题
-
+import { getLogin } from '../assets/script/local.storage';
+console.info('保存在本地的信息',getLogin().name,getLogin().phone)
 Vue.use(Router)
+import { MessageBox } from 'mint-ui';
 
 const Question = resolve =>
   import ('../views/Question');
@@ -23,6 +25,9 @@ const StickyFooterFlex = resolve =>
 const VuexModal = resolve =>
   import ('../views/vuex_modal/vuex.modal');
 
+const vuexmodalstop = resolve =>
+  import ('../views/vuex_modal/vuex-modal-stop');
+
 const TweenSimple = resolve =>
   import ('../views/tween/tween.simple');
 
@@ -32,11 +37,17 @@ const TweenMany = resolve =>
 const progress = resolve =>
   import ('../views/progress/progress');
 
+const progresscircle = resolve =>
+  import ('../views/progress/progress.circle');
+
+const progressTest = resolve =>
+  import ('../views/progress/test.progress');
+
 const password = resolve =>
   import ('../views/password/password-1');
 
-const effect = resolve =>
-  import ('../views/effect/effect');
+const cssEffect = resolve =>
+  import ('../views/cssEffect/cssEffect');
 
 const localstorage = resolve =>
   import ('../views/local.storage/local.storage');
@@ -71,6 +82,9 @@ const selectSearch = resolve =>
 const fadeInNav = resolve =>
   import ('../views/fadeIn.nav/fadeIn.nav');
 
+const pullupimgbig = resolve =>
+  import ('../views/pullup_img_big/pullup.img.big');
+
 const toggle = resolve =>
   import ('../views/toggle/toggle');
 
@@ -80,15 +94,26 @@ const progressbootstrap = resolve =>
 const video = resolve =>
   import ('../views/video/video');
 
-import test from '../views/BScroll/test'
+const star = resolve =>
+  import ('../views/star/star');
 
+const proxyTable = resolve =>
+  import ('../views/proxyTable/proxyTable');
+
+const login = resolve =>
+  import ('../views/login/login');
+
+const alerttoastr = resolve =>
+  import ('../views/alert_toastr/alert_toastr');
+
+
+import test from '../views/BScroll/test'
 
 
 const router = new Router({
 
-  mode: 'history', // ['history', 'hash']
+  mode: 'hash', // ['history', 'hash']
   linkActiveClass: 'active', // active class 名称
-  base: '',
   scrollBehavior(to, from, savedPosition) { // 后退页面时, 保留滚动位置
     if (savedPosition) {
       return savedPosition;
@@ -97,191 +122,252 @@ const router = new Router({
   },
 
   //路由
-	routes: [
+  routes: [
     {
-      path: '/',
+      path: '/solution',
       component: Question,
-    },{
-      path: '/question',
+    }, {
+      path: '/solution/question',
       name: 'question',
       component: Question,
-    },{
-      path: '/andiosfixed',
+    }, {
+      path: '/solution/andiosfixed',
       name: 'andiosfixed',
       meta: {
         title: 'ios对fixed兼容',
+        login: true,
       },
       component: AndIosFixed
     }, {
-      path: '/stickyfooter',
+      path: '/solution/stickyfooter',
       name: 'stickyfooter',
       meta: {
         title: 'Sticy Footer - 1',
+        login: true,
       },
       component: StickyFooter
     }, {
-      path: '/stickyfooter2',
+      path: '/solution/stickyfooter2',
       name: 'stickyfooter2',
       meta: {
         title: 'Sticy Footer - 2',
+        login: true,
       },
       component: StickyFooter2
     }, {
-      path: '/stickyfooterflex',
+      path: '/solution/stickyfooterflex',
       name: 'stickyfooterflex',
       meta: {
         title: 'Sticy Footer - 3',
+        login: true,
       },
       component: StickyFooterFlex
     }, {
-      path: '/vuexmodal',
+      path: '/solution/vuexmodal',
       name: 'vuexmodal',
       meta: {
         title: 'vuexmodal',
       },
       component: VuexModal
-    },{
-      path: '/tweenSimple',
+    }, {
+      path: '/solution/vuexmodalstop',
+      name: 'vuexmodalstop',
+      meta: {
+        title: 'vuex-modal-stop',
+      },
+      component: vuexmodalstop
+    }, {
+      path: '/solution/tweenSimple',
       name: 'tweenSimple',
       meta: {
         title: 'tween.js数字动画效果',
       },
       component: TweenSimple
-    },{
-      path: '/TweenMany',
+    }, {
+      path: '/solution/TweenMany',
       name: 'TweenMany',
       meta: {
         title: 'tween.js多个数字动画效果',
       },
       component: TweenMany
-    },{
-      path: '/progress',
+    }, {
+      path: '/solution/progress',
       name: 'progress',
       meta: {
         title: 'progress css的进度条',
       },
       component: progress
-    },{
-      path: '/progressbootstrap',
+    }, {
+      path: '/solution/progressbootstrap',
       name: 'progressbootstrap',
       meta: {
         title: 'progress css的进度条',
       },
       component: progressbootstrap
-    },{
-      path: '/password',
+    }, {
+      path: '/solution/progresscircle',
+      name: 'progresscircle',
+      meta: {
+        title: 'progress 圆形进度条',
+      },
+      component: progresscircle
+    }, {
+      path: '/solution/progressTest',
+      name: 'progressTest',
+      meta: {
+        title: 'progress 测试',
+      },
+      component: progressTest
+    }, {
+      path: '/solution/password',
       name: 'password',
       meta: {
         title: 'password 手写密码框',
       },
       component: password
-    },{
-      path: '/effect',
-      name: 'effect',
+    }, {
+      path: '/solution/cssEffect',
+      name: 'cssEffect',
       meta: {
-        title: 'css的奇妙效果',
+        title: 'css的效果',
       },
-      component: effect
-    },{
-      path: '/localstorage',
+      component: cssEffect
+    }, {
+      path: '/solution/localstorage',
       name: 'localstorage',
       meta: {
         title: 'store expire 储存信息插件',
       },
       component: localstorage
-    },{
-      path: '/redpacket',
+    }, {
+      path: '/solution/redpacket',
       name: 'redpacket',
       meta: {
         title: '文字上下滚共轮播,短信倒计时',
       },
       component: redpacket,
-    },{
-      path: '/swiper1',
+    }, {
+      path: '/solution/swiper1',
       name: 'swiper1',
       meta: {
         title: 'swiper-1效果',
       },
       component: swiper1,
-    },{
-      path: '/bullet',
+    }, {
+      path: '/solution/bullet',
       name: 'bullet',
       meta: {
         title: 'bullet 弹幕',
       },
       component: bullet,
-    },{
-      path: '/bscrollboth',
+    }, {
+      path: '/solution/bscrollboth',
       name: 'bscrollboth',
       meta: {
         title: 'bscroll 俩边滚动',
       },
       component: bscrollboth,
-    },{
-      path: '/bscrollbook',
+    }, {
+      path: '/solution/bscrollbook',
       name: 'bscrollbook',
       meta: {
         title: 'bscroll 电话本',
       },
       component: bscrollbook,
-    },{
-      path: '/bscrolltop',
+    }, {
+      path: '/solution/bscrolltop',
       name: 'bscrolltop',
       meta: {
         title: 'bscroll 上下滚动',
       },
       component: bscrolltop,
-    },{
-      path: '/bscrollrefresh',
+    }, {
+      path: '/solution/bscrollrefresh',
       name: 'bscrollrefresh',
       meta: {
         title: '上拉刷新下拉加载',
       },
       component: bscrollrefresh,
-    },{
-      path: '/navigatoruserAgent',
+    }, {
+      path: '/solution/navigatoruserAgent',
       name: 'navigatoruserAgent',
       meta: {
         title: '浏览器版本',
       },
       component: navigatoruserAgent,
-    },{
-      path: '/test',
+    }, {
+      path: '/solution/test',
       name: 'test',
       meta: {
         title: 'test test',
       },
       component: test,
-    },{
-      path: '/selectSearch',
+    }, {
+      path: '/solution/selectSearch',
       name: 'selectSearch',
       meta: {
         title: '即实搜索',
       },
       component: selectSearch,
-    },{
-      path: '/fadeInNav',
+    }, {
+      path: '/solution/fadeInNav',
       name: 'fadeInNav',
       meta: {
         title: '渐变的nav',
       },
       component: fadeInNav,
-    },{
-      path: '/toggle',
+    }, {
+      path: '/solution/pullupimgbig',
+      name: 'pullupimgbig',
+      meta: {
+        title: '下拉图片变大',
+      },
+      component: pullupimgbig,
+    }, {
+      path: '/solution/toggle',
       name: 'toggle',
       meta: {
         title: '上下收缩',
       },
       component: toggle,
-    },{
-      path: '/video',
+    }, {
+      path: '/solution/video',
       name: 'video',
       meta: {
         title: '视频组件',
       },
       component: video,
-    },{
-	    path:'*',
+    }, {
+      path: '/solution/star',
+      name: 'star',
+      meta: {
+        title: '五星评价',
+      },
+      component: star,
+    }, {
+      path: '/solution/proxyTable',
+      name: 'proxyTable',
+      meta: {
+        title: '反向代理',
+      },
+      component: proxyTable,
+    }, {
+      path: '/solution/login',
+      name: 'login',
+      meta: {
+        title: '登录页面',
+      },
+      component: login,
+    }, {
+      path: '/solution/alerttoastr',
+      name: 'alerttoastr',
+      meta: {
+        title: '小组件',
+      },
+      component: alerttoastr,
+    },
+    {
+      path: '*',
       redirect: {
         name: 'question'
       }
@@ -289,25 +375,54 @@ const router = new Router({
   ],
 
 
-
 });
 
 router.beforeEach((to, from, next) => {
-    //console.info(to,from,next)
+  // console.info(22, window.location.href)
+  //console.info(to,from,next)
+  // 对路由变化作出响应...
+  // console.log(router,to)
+  // console.log(router,to.query, from)
+  // console.log(to,$.param( to.query ),window.location.href)
 
+
+  //全局拦截器的
+  console.info(to)
+  // next()
+  if (to.meta.login) {  // 判断该路由是否需要登录权限
+    if (getLogin().name && getLogin().phone) {  // 通过store获取当前的token是否存在
+      next();
+    }
+    else {
+      MessageBox.alert('未登录，请先登录')
+      next({
+        path: '/solution/login',
+        query: { redirect: to.fullPath }  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      })
+    }
+  }
+  else {
+    next();
+  }
+
+
+
+  addHtmlBodyClass(from,to)
 
   // html加class ==>给每个组件添加一个className ，min-height：100vh；有些手机是不兼容
   //使用方法：html-路由的名称 组成的一个className：height:100%;width:100%; 全屏充满
   //这个className的查看方法 控制台 Element 即可
-  const fromName = from.name || '';
-  const toName = to.name || '';
-  if (fromName) {
-    document.documentElement.classList.remove(`html-${fromName}`);
+  function addHtmlBodyClass(from, to) {
+    const fromName = from.name || '';
+    const toName = to.name || '';
+    if (fromName) {
+      document.documentElement.classList.remove(`html-${fromName}`);
+    }
+    document.documentElement.classList.add(`html-${toName}`);
   }
-  document.documentElement.classList.add(`html-${toName}`);
 
 
-  next();
+  // next();
 })
 
 // 路由变化, 关闭弹窗
@@ -317,9 +432,7 @@ router.afterEach(function (to) {
     setTitle(to.meta.title);
   }
   store.commit('closeModal');
-
 })
-
 
 
 export default router;

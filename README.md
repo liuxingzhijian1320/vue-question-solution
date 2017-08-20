@@ -1,6 +1,6 @@
+# solution
 
-
-> A common solution for mobile(vue)
+> A Vue.js project
 
 ## Build Setup
 

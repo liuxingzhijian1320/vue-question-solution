@@ -11,7 +11,8 @@
       >
         <ul class="question-ul">
           <li v-for="(item,index) in data">
-            <router-link tag="div" :to="{name:item.name}"><span class="index">{{index+1}}</span>{{item.title}}</router-link>
+            <router-link tag="div" :to="{name:item.name}"><span class="index">{{index + 1}}</span>{{item.title}}
+            </router-link>
           </li>
         </ul>
       </scroll>
@@ -28,19 +29,22 @@
         listenScroll: true,
         scrollY: 0,
         op: '',
-        startBg:true,
+        startBg: true,
         data: [
           { name: 'stickyfooter', title: 'Sticky Footer(一)' },
           { name: 'stickyfooter2', title: 'Sticky Footer(二)' },
           { name: 'stickyfooterflex', title: 'Sticky Footer(三)' },
           { name: 'andiosfixed', title: '安卓ios-fixed的兼容' },
           { name: 'vuexmodal', title: 'vuex modal' },
+          { name: 'vuexmodalstop', title: 'vuexmodalstop' },
           { name: 'tweenSimple', title: 'tween 数字动画效果' },
           { name: 'TweenMany', title: 'tween 多个数字动画效果' },
           { name: 'progress', title: 'progress 进度条111' },
           { name: 'progressbootstrap', title: 'progress 进度条222' },
+          { name: 'progresscircle', title: 'progress 圆形' },
+          { name: 'progressTest', title: 'progress 测试' },
           { name: 'password', title: 'password 密码框' },
-          { name: 'effect', title: 'effect css效果' },
+          { name: 'cssEffect', title: 'css效果效果' },
           { name: 'localstorage', title: 'localstorage store/expire 储存信息的插件' },
           { name: 'redpacket', title: 'redpacket 短信倒计时 文字上下轮播css写法' },
           { name: 'swiper1', title: 'swiper1 效果' },
@@ -53,12 +57,16 @@
           { name: 'navigatoruserAgent', title: '浏览器版本' },
           { name: 'selectSearch', title: '即实搜索' },
           { name: 'fadeInNav', title: '渐变的nav' },
+          { name: 'pullupimgbig', title: '下拉图片变大' },
           { name: 'toggle', title: '上下收缩' },
           { name: 'video', title: '视频组件' },
+          { name: 'star', title: '五星评价' },
+          { name: 'proxyTable', title: '反向代理' },
+          { name: 'alerttoastr', title: '小组件' },
         ]
       }
     },
-    methods:{
+    methods: {
       scroll(pos){
         this.scrollY = pos.y;
         //console.info(pos.y)
@@ -69,13 +77,13 @@
         if (this.scrollY >= 0) {
           this.startBg = true;
           return this.startBg;
-        } else if (this.scrollY > -200 && this.scrollY < 0) {
-          this.op = Math.abs(this.scrollY / 100 / 2); //目的是opacity为1，这有个疑问：为什么rgba不能用？
+        } else if (this.scrollY > -400 && this.scrollY < 0) {
+          this.op = Math.abs(this.scrollY / 400 / 4); //目的是opacity为1，这有个疑问：为什么rgba不能用？
           //console.info(`backgroundColor:rgba(red,${this.op.toFixed(2)})`)
 //          return `backgroundColor:rgba(red,${this.op.toFixed(2)})`
-          return `backgroundColor:yellow;opacity:${this.op.toFixed(2)};color:red`
+          return `backgroundColor:#35a251;opacity:${this.op.toFixed(2)};color:#000`
         }
-        return `backgroundColor:yellow;color:red`
+        return `backgroundColor:#35a251;color:#000`
       }
     },
     components: {
@@ -126,7 +134,7 @@
           color: #000;
         }
         .index {
-          margin-right:0.2rem;
+          margin-right: 0.2rem;
         }
       }
     }

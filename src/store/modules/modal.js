@@ -17,9 +17,10 @@ const mutations = {
     state.status = status;
     state.data = data;
     state.callback = callback;
-    console.info(222,name,status,state)
-
   },
+
+
+
   closeModal(state){
     //console.info('closeModal')
     state.status = false;

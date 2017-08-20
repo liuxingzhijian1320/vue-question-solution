@@ -14,7 +14,11 @@
 
   </div>
 </template>
-<script></script>
+<script>
+  export default {
+    methods:{}
+  }
+</script>
 <style lang='scss'>
   #StickyFooter-wrapper-1 {
     min-height: 100vh;

@@ -9,6 +9,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '../../assets/style/waves.css';
   .button {
     color: #fff;
     background-color: #20a0ff;

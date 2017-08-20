@@ -32,7 +32,8 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {}
+  log: () => {
+  }
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
@@ -50,6 +51,12 @@ Object.keys(proxyTable).forEach(function (context) {
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })
+
+// app.use('/api', proxyMiddleware({
+//   target: 'http://wfc2017-api.weddingee.com/',
+//   changeOrigin:true,//通过设置changeOrigin:true 开启代理
+// }));
+
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())

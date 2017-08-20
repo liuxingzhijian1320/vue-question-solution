@@ -4,15 +4,14 @@ import Vuex from 'vuex';
 
 
 import modal from './modules/modal'; // modal 弹窗 模块
+import com from './modules/com'; // 公共的操作
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  mutations: {
-
-  },
   modules: {
     modal,
+    com
   },
   strict: process.env.NODE_ENV !== 'production', // 严格模式
 });

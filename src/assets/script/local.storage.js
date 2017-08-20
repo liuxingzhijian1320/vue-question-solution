@@ -11,6 +11,12 @@ export const getUser = function () {
   return token || '';
 };
 
+// 用户标识
+export const getLogin = function () {
+  const token = store.get('zhooson_login_token');
+  return token || '';
+};
+
 
 
 

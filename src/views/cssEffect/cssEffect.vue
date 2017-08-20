@@ -16,6 +16,10 @@
       <h1>水波纹的按钮</h1>
       <waves></waves>
     </div>
+
+
+
+
   </div>
 </template>
 <script>
@@ -31,16 +35,17 @@
 </script>
 
 <style lang="scss" scoped>
+  @import '../../assets/style/waves.css';
+
   #effect {
     width: 100%;
-    padding: 0 0.3rem;
+    padding: 0.3rem;
     .one {
       h4 {
         text-align: center;
       }
       .price-wrap {
         margin-top: 0.5rem;
-
         display: inline-block;
         font-size: 0.31rem;
         color: #c29957;
@@ -64,9 +69,9 @@
         padding: 0 0.17rem;
       }
     }
-
     .two {
       margin-top: 0.4rem;
     }
+
   }
 </style>
