@@ -106,6 +106,15 @@ const login = resolve =>
 const alerttoastr = resolve =>
   import ('../views/alert_toastr/alert_toastr');
 
+const map = resolve =>
+  import ('../views/map/map');
+
+const map1 = resolve =>
+  import ('../views/map/map_1');
+
+const map2 = resolve =>
+  import ('../views/map/map_2');
+
 
 import test from '../views/BScroll/test'
 
@@ -365,6 +374,27 @@ const router = new Router({
         title: '小组件',
       },
       component: alerttoastr,
+    }, {
+      path: '/solution/map',
+      name: 'map',
+      meta: {
+        title: '高德地图',
+      },
+      component: map,
+    },{
+      path: '/solution/map1',
+      name: 'map1',
+      meta: {
+        title: '高德地图',
+      },
+      component: map1,
+    },{
+      path: '/solution/map2',
+      name: 'map2',
+      meta: {
+        title: '高德地图',
+      },
+      component: map2,
     },
     {
       path: '*',

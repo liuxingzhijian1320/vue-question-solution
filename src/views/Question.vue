@@ -63,6 +63,7 @@
           { name: 'star', title: '五星评价' },
           { name: 'proxyTable', title: '反向代理' },
           { name: 'alerttoastr', title: '小组件' },
+          { name: 'map', title: '高德地图' },
         ]
       }
     },
