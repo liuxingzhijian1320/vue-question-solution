@@ -29,26 +29,63 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       firstProxy: {
-        target: 'http://webapi.rightpsy.com/',
+        target: 'http://wedding.halobear.com/',
         filter(pathname, req) {
-          //console.info('firstProxy',req)
           const isApi = pathname.indexOf('/api') == 0;
           const ret = isApi;
           return ret;
         },
         changeOrigin: true,
       },
-      // secondProxy: {
-      //   target: 'http://wedding.com/',
-      //   filter(pathname, req) {
-      //     //console.info('secondProxy',req)
-      //     const isApi = pathname.indexOf('/halo') == 0;
-      //     const ret = isApi;
-      //     return ret;
-      //   },
-      //   changeOrigin: true,
-      // },
+      sencod: {
+        target: 'http://cang.weddingee.com/',
+        filter(pathname, req) {
+          console.info('pathname',pathname)
+          const isApi = pathname.indexOf('/abc') == 0;   //这里的abc是和后台商量好
+          const ret = isApi;
+          return ret;
+        },
+        changeOrigin: true,
+      },
     },
+
+
+    /*
+     proxyTable: {
+      api: {
+        target: 'http://www.google.com/',
+        filter(pathname, req) {
+          const isApi = pathname.indexOf('/api') == 0;
+          const ret = isApi;
+          return ret;
+        },
+        // pathRewrite(path, req) {
+        //   return path.replace('/api', '/');
+        // },
+        changeOrigin: true,
+      },
+      echarts: {
+        target: 'http://echarts.baidu.com',
+        filter(pathname, req) {
+          const isApi = pathname.indexOf('/gallery') == 0;
+          const ret = isApi;
+          console.info('pathname', pathname, ret);
+          return ret;
+        },
+        changeOrigin: true,
+      },
+    },
+
+
+
+
+     */
+
+
+
+
+
+
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
