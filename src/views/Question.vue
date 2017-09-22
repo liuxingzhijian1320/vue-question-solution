@@ -64,6 +64,7 @@
           { name: 'proxyTable', title: '反向代理' },
           { name: 'alerttoastr', title: '小组件' },
           { name: 'map', title: '高德地图' },
+          { name: 'loadmore', title: '加载更多' },
         ]
       }
     },

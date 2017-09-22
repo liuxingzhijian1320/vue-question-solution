@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import store from '../store'; //vuex
 import setTitle from '../assets/script/settitle.js'; // 设置页面标题
 import { getLogin } from '../assets/script/local.storage';
-console.info('保存在本地的信息',getLogin().name,getLogin().phone)
+// console.info('保存在本地的信息',getLogin().name,getLogin().phone)
 Vue.use(Router)
 import { MessageBox } from 'mint-ui';
 
@@ -114,6 +114,9 @@ const map1 = resolve =>
 
 const map2 = resolve =>
   import ('../views/map/map_2');
+
+const loadmore = resolve =>
+  import ('../views/loadmore/loadmore');
 
 
 import test from '../views/BScroll/test'
@@ -395,6 +398,13 @@ const router = new Router({
         title: '高德地图',
       },
       component: map2,
+    },{
+      path: '/solution/loadmore',
+      name: 'loadmore',
+      meta: {
+        title: '加载更多',
+      },
+      component: loadmore,
     },
     {
       path: '*',
@@ -417,7 +427,7 @@ router.beforeEach((to, from, next) => {
 
 
   //全局拦截器的
-  console.info(to)
+  // console.info(to)
   // next()
   if (to.meta.login) {  // 判断该路由是否需要登录权限
     if (getLogin().name && getLogin().phone) {  // 通过store获取当前的token是否存在

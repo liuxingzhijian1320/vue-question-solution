@@ -40,7 +40,7 @@ module.exports = {
       sencod: {
         target: 'http://cang.weddingee.com/',
         filter(pathname, req) {
-          console.info('pathname',pathname)
+          // console.info('pathname',pathname)
           const isApi = pathname.indexOf('/abc') == 0;   //这里的abc是和后台商量好
           const ret = isApi;
           return ret;
