@@ -14,7 +14,7 @@
       </li>
     </ul>
 
-    <div class="loadmore-icon" @click="loadmore" v-show="!showlaoding">加载中<i class="fa fa-cog fa-spin"></i></div>
+    <div class="loadmore-icon" @click="loadmore">点击加载更多</div>
     <div class="loading" v-show="showlaoding">
       <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom"></i>
     </div>
@@ -57,15 +57,11 @@
           });
       },
       loadmore() {
-
-        // 拿到total的字段的，判断list的长度和total的比较的，判断的loading是否展示的出来
-
         this.getData(this.page += 1)
-
       }
     },
     mounted() {
-      this.getData(this.page)
+      this.getData()
     }
   }
 </script>

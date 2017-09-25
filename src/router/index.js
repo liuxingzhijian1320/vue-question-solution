@@ -118,6 +118,9 @@ const map2 = resolve =>
 const loadmore = resolve =>
   import ('../views/loadmore/loadmore');
 
+const loadmore2 = resolve =>
+  import ('../views/loadmore/loadmore-2');
+
 
 import test from '../views/BScroll/test'
 
@@ -402,9 +405,16 @@ const router = new Router({
       path: '/solution/loadmore',
       name: 'loadmore',
       meta: {
-        title: '加载更多',
+        title: '加载更多-点击',
       },
       component: loadmore,
+    },,{
+      path: '/solution/loadmore2',
+      name: 'loadmore2',
+      meta: {
+        title: '加载更多-滑动',
+      },
+      component: loadmore2,
     },
     {
       path: '*',
