@@ -1,22 +1,23 @@
 <template>
   <div class="question">
-    <div class="title" :class="{startBg:startBg}" :style="changeBg">移动端常见的问题</div>
-    <div class="content">
-      <scroll ref="questionRef"
-              :data="data"
-              :probe-type="probeType"
-              class="question-scroll"
-              :listen-scroll="listenScroll"
-              @scroll="scroll"
-      >
+    <!--<div class="title" :class="{startBg:startBg}" :style="changeBg">移动端常见的问题</div>-->
+    <div class="title">移动端常见的问题</div>
+    <!--<div class="content">-->
+      <!--<scroll ref="questionRef"-->
+              <!--:data="data"-->
+              <!--:probe-type="probeType"-->
+              <!--class="question-scroll"-->
+              <!--:listen-scroll="listenScroll"-->
+              <!--@scroll="scroll"-->
+      <!--&gt;-->
         <ul class="question-ul">
           <li v-for="(item,index) in data">
             <router-link tag="div" :to="{name:item.name}"><span class="index">{{index + 1}}</span>{{item.title}}
             </router-link>
           </li>
         </ul>
-      </scroll>
-    </div>
+      <!--</scroll>-->
+    <!--</div>-->
   </div>
 </template>
 <script>
@@ -64,35 +65,36 @@
           { name: 'proxyTable', title: '反向代理' },
           { name: 'alerttoastr', title: '小组件' },
           { name: 'map', title: '高德地图' },
-          { name: 'loadmore', title: '加载更多' },
+          { name: 'loadmore', title: '加载更多-点击' },
+          { name: 'loadmore2', title: '加载更多-滑动' },
         ]
       }
     },
     methods: {
-      scroll(pos){
-        this.scrollY = pos.y;
-        //console.info(pos.y)
-      }
+//      scroll(pos){
+//        this.scrollY = pos.y;
+//        //console.info(pos.y)
+//      }
     },
-    computed: {
-      changeBg(){
-        if (this.scrollY >= 0) {
-          this.startBg = true;
-          return this.startBg;
-        } else if (this.scrollY > -400 && this.scrollY < 0) {
-          this.op = Math.abs(this.scrollY / 400 / 4); //目的是opacity为1，这有个疑问：为什么rgba不能用？
-          //console.info(`backgroundColor:rgba(red,${this.op.toFixed(2)})`)
-//          return `backgroundColor:rgba(red,${this.op.toFixed(2)})`
-          return `backgroundColor:#35a251;opacity:${this.op.toFixed(2)};color:#000`
-        }
-        return `backgroundColor:#35a251;color:#000`
-      }
-    },
+//    computed: {
+//      changeBg(){
+//        if (this.scrollY >= 0) {
+//          this.startBg = true;
+//          return this.startBg;
+//        } else if (this.scrollY > -400 && this.scrollY < 0) {
+//          this.op = Math.abs(this.scrollY / 400 / 4); //目的是opacity为1，这有个疑问：为什么rgba不能用？
+//          //console.info(`backgroundColor:rgba(red,${this.op.toFixed(2)})`)
+////          return `backgroundColor:rgba(red,${this.op.toFixed(2)})`
+//          return `backgroundColor:#35a251;opacity:${this.op.toFixed(2)};color:#000`
+//        }
+//        return `backgroundColor:#35a251;color:#000`
+//      }
+//    },
     components: {
       Scroll
     },
     activated(){
-      this.$refs.questionRef.refresh()
+//      this.$refs.questionRef.refresh()
     }
 
   }
@@ -102,7 +104,7 @@
     touch-action: none;
     font-size: 0.26rem;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     .title {
       text-align: center;
       padding: 0.3rem 0;
@@ -114,7 +116,6 @@
       left: 0;
       overflow: hidden;
       right: 0;
-      padding-left: 0.4rem;
     }
     .question-scroll {
       height: 100%;
@@ -123,6 +124,7 @@
       li {
         height: 0.7rem;
         line-height: 0.7rem;
+        padding-left: 0.4rem;
         &:after {
           content: '';
           width: 100%;
