@@ -121,6 +121,9 @@ const loadmore = resolve =>
 const loadmore2 = resolve =>
   import ('../views/loadmore/loadmore-2');
 
+const occupy = resolve =>
+  import ('../views/occupy/occupy');
+
 
 import test from '../views/BScroll/test'
 
@@ -408,13 +411,20 @@ const router = new Router({
         title: '加载更多-点击',
       },
       component: loadmore,
-    },,{
+    },{
       path: '/solution/loadmore2',
       name: 'loadmore2',
       meta: {
         title: '加载更多-滑动',
       },
       component: loadmore2,
+    },{
+      path: '/solution/occupy',
+      name: 'occupy',
+      meta: {
+        title: '文字占位符',
+      },
+      component: occupy,
     },
     {
       path: '*',

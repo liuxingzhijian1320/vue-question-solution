@@ -43,6 +43,11 @@ import axios from 'axios'
 window.axios = axios;  //组件中调用 axios.get(...)
 
 
+//文字占位符
+import VueOccupy from 'vue-occupy'
+Vue.use(VueOccupy)
+
+
 Vue.config.productionTip = false
 
 new Vue({
