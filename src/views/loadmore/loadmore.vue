@@ -14,7 +14,7 @@
       </li>
     </ul>
 
-    <div class="loadmore-icon" @click="loadmore" v-show="!showlaoding">加载中<i class="fa fa-cog fa-spin"></i></div>
+    <div class="loadmore-icon" @click="loadmore" v-show="!showlaoding">点击加载。。。</div>
     <div class="loading" v-show="showlaoding">
       <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom"></i>
     </div>

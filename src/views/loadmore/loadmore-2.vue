@@ -3,7 +3,7 @@
 
     <header class="header">滑动-加载更多</header>
 
-    <ul class="ul">
+    <ul class="ul" id="contain">
       <li class="list" v-for="(item,index) in list">
         <div class="list-left">{{index + 1}}</div>
         <div class="list-center">
@@ -56,29 +56,32 @@
           .catch((error) => {
             console.log(error);
           });
-      },
-    }
-    ,
-    mounted() {
-      this.getData(this.page);
+      }
+    },
+      mounted() {
+        this.getData(this.page);
 
 
-      // 注册scroll事件并监听
+        // 注册scroll事件并监听
       window.addEventListener('scroll', () => {
         console.info('可视区域大小' + document.documentElement.clientHeight + '........' + window.innerHeight)
-        console.info('滚动高度' + document.body.scrollTop)
+        //console.info('滚动高度' + document.body.scrollTop) //原生的方法存在的兼容性问题 mac上面就计算出来是0
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+
         console.info('文档高度' + document.body.offsetHeight)
 
         //判断是否滚动到底部
-        if (document.body.scrollTop + window.innerHeight >= document.body.offsetHeight) { //0 表示距离底部多少的距离的开始触发loadmore效果
+        if (scrollTop + window.innerHeight + 0>= document.body.offsetHeight) { //0 表示距离底部多少的距离的开始触发loadmore效果
           if (!this.showlaoding) { //防止多次加载
             this.getData(this.page += 1)
           }
         }
-      })
+      });
 
+        // 原生的方法存在浏览器兼容的问题的，最好的办法就是的是jq大法，不需要考虑的兼容新的问题的
+
+      }
     }
-  }
 </script>
 <style lang="scss" scoped>
   .loadmore {
@@ -103,6 +106,7 @@
 
   .ul {
     width: 100%;
+    height: auto;
   }
 
   .list {
