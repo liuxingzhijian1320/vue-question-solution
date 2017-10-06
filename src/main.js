@@ -47,6 +47,9 @@ window.axios = axios;  //组件中调用 axios.get(...)
 import VueOccupy from 'vue-occupy'
 Vue.use(VueOccupy)
 
+//多指触控
+import Vue2Touch from 'vue2-touch'
+Vue.use(Vue2Touch)
 
 Vue.config.productionTip = false
 

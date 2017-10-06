@@ -68,6 +68,7 @@
           { name: 'loadmore', title: '加载更多-点击' },
           { name: 'loadmore2', title: '加载更多-滑动' },
           { name: 'occupy', title: '文字占位符' },
+          { name: 'hammer', title: '多指触控' },
         ]
       }
     },

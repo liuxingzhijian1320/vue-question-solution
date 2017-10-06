@@ -124,6 +124,9 @@ const loadmore2 = resolve =>
 const occupy = resolve =>
   import ('../views/occupy/occupy');
 
+const hammer = resolve =>
+  import ('../views/hammer/hammer');
+
 
 import test from '../views/BScroll/test'
 
@@ -425,6 +428,13 @@ const router = new Router({
         title: '文字占位符',
       },
       component: occupy,
+    },{
+      path: '/solution/hammer',
+      name: 'hammer',
+      meta: {
+        title: '多指触控',
+      },
+      component: hammer,
     },
     {
       path: '*',
