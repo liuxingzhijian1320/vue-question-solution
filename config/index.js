@@ -28,20 +28,30 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      firstProxy: {
-        target: 'http://wedding.halobear.com/',
+      // firstProxy: {
+      //   target: 'http://wedding.halobear.com/',
+      //   filter(pathname, req) {
+      //     const isApi = pathname.indexOf('/api') == 0;
+      //     const ret = isApi;
+      //     return ret;
+      //   },
+      //   changeOrigin: true,
+      // },
+      sencod: {
+        target: 'https://cnodejs.org/',
         filter(pathname, req) {
-          const isApi = pathname.indexOf('/api') == 0;
+          // console.info('pathname',pathname)
+          const isApi = pathname.indexOf('/api') == 0;   //这里的abc是和后台商量好
           const ret = isApi;
           return ret;
         },
         changeOrigin: true,
       },
-      sencod: {
-        target: 'http://cang.weddingee.com/',
+      three: {
+        target: ' https://easy-mock.com/mock/59d78f3b9d342f449f2fed3a/',
         filter(pathname, req) {
           // console.info('pathname',pathname)
-          const isApi = pathname.indexOf('/abc') == 0;   //这里的abc是和后台商量好
+          const isApi = pathname.indexOf('/baseapi') == 0;   //这里的abc是和后台商量好
           const ret = isApi;
           return ret;
         },
