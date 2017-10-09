@@ -121,7 +121,6 @@ const loadmore = resolve =>
 const loadmore2 = resolve =>
   import ('../views/loadmore/loadmore-2');
 
-
 import test from '../views/BScroll/test'
 
 
@@ -408,7 +407,7 @@ const router = new Router({
         title: '加载更多-点击',
       },
       component: loadmore,
-    },,{
+    },{
       path: '/solution/loadmore2',
       name: 'loadmore2',
       meta: {

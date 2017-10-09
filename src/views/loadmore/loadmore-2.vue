@@ -1,7 +1,7 @@
 <template>
   <div class="loadmore">
 
-    <header class="header">加载更多DEMO</header>
+    <header class="header">滑动-加载更多</header>
 
     <ul class="ul">
       <li class="list" v-for="(item,index) in list">
@@ -14,7 +14,7 @@
       </li>
     </ul>
 
-    <div class="loadmore-icon" @click="loadmore">点击加载更多</div>
+    <div class="loadmore-icon">加载更多<i class="fa fa-cog fa-spin"></i></div>
     <div class="loading" v-show="showlaoding">
       <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom"></i>
     </div>
@@ -24,12 +24,12 @@
 <script>
 
   export default {
-    name: 'loadmore',
+    name: 'loadmore2',
     data() {
       return {
-        list: [],
-        page: 1,
-        showlaoding: true
+        list: [],//数据
+        page: 1,//页码
+        showlaoding: true //是否显示loading效果
       }
     },
     methods: {
@@ -50,18 +50,33 @@
                 n.create_at = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
               })
               this.showlaoding = false
+
             }
           })
           .catch((error) => {
             console.log(error);
           });
       },
-      loadmore() {
-        this.getData(this.page += 1)
-      }
-    },
+    }
+    ,
     mounted() {
-      this.getData()
+      this.getData(this.page);
+
+
+      // 注册scroll事件并监听
+      window.addEventListener('scroll', () => {
+        console.info('可视区域大小' + document.documentElement.clientHeight + '........' + window.innerHeight)
+        console.info('滚动高度' + document.body.scrollTop)
+        console.info('文档高度' + document.body.offsetHeight)
+
+        //判断是否滚动到底部
+        if (document.body.scrollTop + window.innerHeight + 0>= document.body.offsetHeight) { //0 表示距离底部多少的距离的开始触发loadmore效果
+          if (!this.showlaoding) {  //防止多次加载
+            this.getData(this.page += 1)
+          }
+        }
+      })
+
     }
   }
 </script>
