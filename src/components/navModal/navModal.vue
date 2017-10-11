@@ -17,10 +17,10 @@
 <script type="text/babel">
 
   export default {
-    props: ['myTag', 'activeIndex', 'query'],
+    props: ['myTag', 'activeIndex', 'query'], //接受父组件 方法 数据
     data() {
       return {
-        navActiveIndex: 0,
+        navActiveIndex: 0, //初始化默认
       }
     },
     mounted() {
