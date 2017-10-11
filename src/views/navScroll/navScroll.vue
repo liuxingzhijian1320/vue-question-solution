@@ -23,7 +23,7 @@
 <script>
   import modalTag from 'components/navModal/navModal.vue';
   import AutoScroll from 'assets/script/autoScroll'
-
+  let autoScrollInstance = null
   export default {
     name: 'navScroll',
     data() {
@@ -49,7 +49,6 @@
         navActiveIndex: 0,
         showModal: false,
         selectTag: null,
-        autoScrollInstance:null
       }
     },
     methods: {
