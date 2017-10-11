@@ -9,14 +9,22 @@
       </div>
     </div>
     <button @click="add">增加</button>
+
+    <v-progress :value="progress"></v-progress>
+
+
+
   </div>
 </template>
 <script>
+  import progress from 'src/components/progress/progress';
+
   export default {
     name: 'progress-bootstrap',
     data(){
       return {
-        width:30
+        width:30,
+        progress: 0
       }
     },
     methods: {
@@ -31,6 +39,14 @@
         }
         return `width:30%`
       }
+    },
+    components: {
+      'v-progress': progress
+    },
+    mounted(){
+      setTimeout(e => {
+        this.progress = 50
+      }, 0)
     }
   }
 </script>
