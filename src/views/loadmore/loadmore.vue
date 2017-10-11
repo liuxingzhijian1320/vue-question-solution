@@ -1,7 +1,7 @@
 <template>
   <div class="loadmore">
 
-    <header class="header">加载更多DEMO</header>
+    <header class="header">点击-加载更多</header>
 
     <ul class="ul">
       <li class="list" v-for="(item,index) in list">
