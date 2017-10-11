@@ -69,6 +69,7 @@
           { name: 'loadmore2', title: '加载更多-滑动' },
           { name: 'occupy', title: '文字占位符' },
           { name: 'hammer', title: '多指触控' },
+          { name: 'navScroll', title: '联动的nav' },
         ]
       }
     },

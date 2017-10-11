@@ -127,6 +127,9 @@ const occupy = resolve =>
 const hammer = resolve =>
   import ('../views/hammer/hammer');
 
+const navScroll = resolve =>
+  import ('../views/navScroll/navScroll');
+
 
 import test from '../views/BScroll/test'
 
@@ -435,6 +438,13 @@ const router = new Router({
         title: '多指触控',
       },
       component: hammer,
+    },{
+      path: '/solution/navScroll',
+      name: 'navScroll',
+      meta: {
+        title: '联动的nav',
+      },
+      component: navScroll,
     },
     {
       path: '*',
