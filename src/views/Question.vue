@@ -70,6 +70,8 @@
           { name: 'occupy', title: '文字占位符' },
           { name: 'hammer', title: '多指触控' },
           { name: 'navScroll', title: '联动的nav' },
+          { name: 'fixtop', title: '顶部固定' },
+          { name: 'changeRouterData', title: '动态更改的router-data' },
         ]
       }
     },

@@ -130,6 +130,12 @@ const hammer = resolve =>
 const navScroll = resolve =>
   import ('../views/navScroll/navScroll');
 
+const fixtop = resolve =>
+  import ('../views/fixTop/fixTop');
+
+const changeRouterData = resolve =>
+  import ('../views/changeRouterData/changeRouterData');
+
 
 import test from '../views/BScroll/test'
 
@@ -445,6 +451,20 @@ const router = new Router({
         title: '联动的nav',
       },
       component: navScroll,
+    },{
+      path: '/solution/fixtop',
+      name: 'fixtop',
+      meta: {
+        title: '顶部固定',
+      },
+      component: fixtop,
+    },{
+      path: '/solution/changeRouterData',
+      name: 'changeRouterData',
+      meta: {
+        title: '动态更改的router-data',
+      },
+      component: changeRouterData,
     },
     {
       path: '*',
