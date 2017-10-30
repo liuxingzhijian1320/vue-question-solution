@@ -58,6 +58,9 @@ const redpacket = resolve =>
 const swiper1 = resolve =>
   import ('../views/swiper/swiper-1');
 
+const swiper2 = resolve =>
+  import ('../views/swiper/swiper.component');
+
 const bullet = resolve =>
   import ('../views/bullet/bullet');
 
@@ -283,6 +286,13 @@ const router = new Router({
         title: 'swiper-1效果',
       },
       component: swiper1,
+    },{
+      path: '/solution/swiper2',
+      name: 'swiper2',
+      meta: {
+        title: '轮播图（组件）',
+      },
+      component: swiper2,
     }, {
       path: '/solution/bullet',
       name: 'bullet',
