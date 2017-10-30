@@ -1,14 +1,18 @@
 <template>
   <div id="progress">
 
-    <button @click="add">ADD</button>
+    <v-progress :value="progress"></v-progress>
+
+
 
     <dashboard :min="0" :max="goodsTotal" :lens="20" :value="goodsCountTotalForOrder"></dashboard>
+
 
   </div>
 </template>
 <script>
   import dashboard from 'src/components/dashboard/dashboard.vue';
+  import progress from 'src/components/progress/progress';
 
   export default {
     name: "progress",
@@ -16,21 +20,20 @@
       return {
         goodsTotal: 200, //总数量
         goodsCountTotalForOrder: 50, //订单数
+        progress: 0
       }
     },
     components: {
       dashboard,
+      'v-progress': progress
     },
 
-    methods: {
-      add() {
-        this.goodsTotal += 50;
-        this.goodsCountTotalForOrder += 10;
-        console.info('add')
-      },
-    },
-
-
+    methods: {},
+    mounted(){
+      setTimeout(e => {
+        this.progress = 50
+      }, 0)
+    }
   }
 </script>
 <style lang='scss'>
@@ -38,5 +41,6 @@
     height: 100vh;
     width: 100%;
     background-color: gray;
+    padding-top:1rem;
   }
 </style>

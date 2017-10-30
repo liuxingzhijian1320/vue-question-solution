@@ -6,28 +6,6 @@
       </div>
     </div>
 
-    <div class="info">
-      <div class="info-l">
-        <div class="inner">
-          <div class="info-title ">支持人数</div>
-          <div class="info-value">100人</div>
-        </div>
-      </div>
-      <div class="info-l">
-        <div class="inner">
-          <div class="info-title">已筹金额</div>
-          <div class="info-value">100元</div>
-        </div>
-      </div>
-      <div class="info-l">
-        <div class="inner">
-          <div class="info-title">剩余时间</div>
-          <div class="info-value">5天</div>
-        </div>
-      </div>
-    </div>
-
-
   </div>
 </template>
 <script>
@@ -77,6 +55,7 @@
     background-color: #dfdfdf;
     margin-top: 0.5rem;
     position: relative;
+    margin-bottom:1rem;
   }
 
   .progress {
@@ -107,28 +86,6 @@
     color: #f53655;
     font-size: 0.3rem;
     font-weight: 900;
-  }
-
-  .info {
-    display: flex;
-    width: 100%;
-    .info-l {
-      flex: 1;
-      height: 1.7rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .info-title {
-      font-size: 0.22rem;
-      color: #666666;
-      margin-bottom: 0.2rem;
-    }
-    .info-value {
-      font-size: 0.26rem;
-      color: #333333;
-    }
   }
 
 </style>

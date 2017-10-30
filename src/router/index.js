@@ -91,8 +91,6 @@ const pullupimgbig = resolve =>
 const toggle = resolve =>
   import ('../views/toggle/toggle');
 
-const progressbootstrap = resolve =>
-  import ('../views/progress/progress.bootstrap');
 
 const video = resolve =>
   import ('../views/video/video');
@@ -230,13 +228,6 @@ const router = new Router({
         title: 'progress css的进度条',
       },
       component: progress
-    }, {
-      path: '/solution/progressbootstrap',
-      name: 'progressbootstrap',
-      meta: {
-        title: 'progress css的进度条',
-      },
-      component: progressbootstrap
     }, {
       path: '/solution/progresscircle',
       name: 'progresscircle',

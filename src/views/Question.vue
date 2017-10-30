@@ -41,7 +41,6 @@
           { name: 'tweenSimple', title: 'tween 数字动画效果' },
           { name: 'TweenMany', title: 'tween 多个数字动画效果' },
           { name: 'progress', title: 'progress 进度条111' },
-          { name: 'progressbootstrap', title: 'progress 进度条222' },
           { name: 'progresscircle', title: 'progress 圆形' },
           { name: 'progressTest', title: 'progress 测试' },
           { name: 'password', title: 'password 密码框' },
