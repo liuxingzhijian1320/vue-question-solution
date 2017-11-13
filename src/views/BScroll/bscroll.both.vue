@@ -643,6 +643,11 @@
         let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
         let el = foodList[index]
         this.foodsScroll.scrollToElement(el, 300)
+      },
+      _followScroll(index) {
+        let meunWrapper = this.$refs.meunWrapper;
+        let el = meunWrapper[index];
+        this.meunScroll.scrollToElement(el, 300, 0, -100);
       }
     },
     computed: {
@@ -651,6 +656,7 @@
           let height1 = this.listHeight[i];
           let height2 = this.listHeight[i + 1];
           if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
+            this._followScroll()
             return i;
           }
         }
