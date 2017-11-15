@@ -42,6 +42,7 @@ export default {
       goods: [],
       listHeight: [],
       scrollY: 0,
+      foodsScroll: '',
       demoList: [
         {
           id: 1,
@@ -605,6 +606,7 @@ export default {
     };
   },
   computed: {
+    //实时计算的currentIndex
     currentIndex() {
       for (let i = 0; i < this.listHeight.length; i++) {
         let height1 = this.listHeight[i];
@@ -618,10 +620,10 @@ export default {
     },
   },
   created() {
-    //为了保证实例完全挂
-    //setTimeout fake url progress
+    //setTimeout fake http progress
     setTimeout(() => {
       // this.goods = this.data;
+      //为了保证实例完全挂
       this.$nextTick(() => {
         this._initScroll();
         this._calculateHeight();
@@ -630,17 +632,18 @@ export default {
   },
   methods: {
     _initScroll() {
+      //初始化menu滚动
       this.meunScroll = new BScroll(this.$refs.menuWrapper, {
         click: true, //取消默认阻止事件
       });
-
+      //初始化foods滚动
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
         click: true,
-        probeType: 3,
+        probeType: 3, //实时派发scroll的事件
       });
-
+      //实施监听scroll的派发出来的pos的参数（下滑为负数，上滑为正数）
       this.foodsScroll.on('scroll', pos => {
-        //console.info(pos.y)
+        // console.info(pos.y);
         // 判断滑动方向，避免下拉时分类高亮错误（如第一分类商品数量为1时，下拉使得第二分类高亮）
         if (pos.y <= 0) {
           this.scrollY = Math.abs(Math.round(pos.y));
@@ -649,28 +652,44 @@ export default {
     },
     //计算的foods(右侧)每个li的高度
     _calculateHeight() {
+      //获取的foodList的--所有的--节点
       let foodList = this.$refs.foodList;
-      //console.info('foodList',foodList)
-
+      // console.info('foodList', foodList);
+      //设置第一个foodList的第一个高度
       let height = 0;
       this.listHeight.push(height);
-      //console.info('this.listHeight',this.listHeight)
+      // console.info('this.listHeight', this.listHeight);
 
-      for (let i = 0; i < foodList.length; i++) {
-        let item = foodList[i];
-        height += item.clientHeight;
+      //写法一
+      // for (let i = 0; i < foodList.length; i++) {
+      //   let item = foodList[i];
+      //   height += item.clientHeight;
+      //   this.listHeight.push(height);
+      // }
+
+      //写法二
+      foodList.forEach(n => {
+        height += n.clientHeight; // 计算每个高度
         this.listHeight.push(height);
-      }
-      //console.info('this.listHeight',this.listHeight)
+      });
+
+      // console.info('this.listHeight', this.listHeight);
     },
     selectMenu(index, event) {
+      //判断是不是pc版
       // if (!event._constructed) {
       //   return;
       // }
+      // console.info(index);
+
       let foodList = this.$refs.foodList;
+      //点击获取的index，就是当前点击的dom节点
       let el = foodList[index];
+      // console.info(el);
+      //滚动到指定的目标元素。
       this.foodsScroll.scrollToElement(el, 300);
     },
+    //滚动menu，当menu的高度高一个屏幕的时候，会自动滚动的
     _followScroll(index) {
       let menuList = this.$refs.menuList;
       let el = menuList[index];
@@ -731,14 +750,14 @@ export default {
         color: #999;
         font-size: 0.24rem;
       }
-      .food-list:last-child {
-        .android & {
-          min-height: 10.95rem;
-        }
-        .ios & {
-          min-height: 11.1rem;
-        }
-      }
+      // .food-list:last-child {
+      //   .android & {
+      //     min-height: 10.95rem;
+      //   }
+      //   .ios & {
+      //     min-height: 11.1rem;
+      //   }
+      // }
       .food-item {
         display: flex;
         height: 1.6rem;
