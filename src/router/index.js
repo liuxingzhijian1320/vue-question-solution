@@ -93,6 +93,7 @@ const hammer = resolve => import('../views/hammer/hammer');
 const navScroll = resolve => import('../views/navScroll/navScroll');
 
 const fixtop = resolve => import('../views/fixTop/fixTop');
+const fixtop2 = resolve => import('../views/fixTop-2/fixTop-2');
 
 const changeRouterData = resolve =>
   import('../views/changeRouterData/changeRouterData');
@@ -460,6 +461,14 @@ const router = new Router({
         title: '顶部固定',
       },
       component: fixtop,
+    },
+    {
+      path: '/solution/fixtop2',
+      name: 'fixtop2',
+      meta: {
+        title: '顶部固定2',
+      },
+      component: fixtop2,
     },
     {
       path: '/solution/changeRouterData',

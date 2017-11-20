@@ -72,6 +72,7 @@ export default {
         { name: 'hammer', title: '多指触控' },
         { name: 'navScroll', title: '联动的nav' },
         { name: 'fixtop', title: '顶部固定' },
+        { name: 'fixtop2', title: '顶部固定2' },
         { name: 'changeRouterData', title: '动态更改的router-data' },
       ],
     };
