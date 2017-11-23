@@ -95,6 +95,7 @@ const fixtop2 = resolve => import('../views/fixTop-2/fixTop-2');
 const changeRouterData = resolve => import('../views/changeRouterData/changeRouterData');
 
 const filterActionsheet = resolve => import('../views/filter_actionsheet/filter_actionsheet');
+const filterActionsheetvuex = resolve => import('../views/filter_actionsheet_vuex/filter_actionsheet_vuex');
 
 import test from '../views/BScroll/test';
 
@@ -483,6 +484,14 @@ const router = new Router({
 				title: 'actionsheet过滤',
 			},
 			component: filterActionsheet,
+		},
+		{
+			path: '/solution/filterActionsheetvuex',
+			name: 'filterActionsheetvuex',
+			meta: {
+				title: 'actionsheet过滤-vuex版本',
+			},
+			component: filterActionsheetvuex,
 		},
 		{
 			path: '*',

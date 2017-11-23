@@ -1,5 +1,4 @@
 const state = {
-	activeAction: 1,
 	filterlist: [
 		{
 			title: '灯光租赁服务',
@@ -57,72 +56,55 @@ const state = {
 			address: '梧桐',
 			status: 0,
 		},
+	],
+	actions: [
 		{
-			title: 'S型T台',
-			pay_time: 1511331341,
-			amount: '8000.00',
-			address: 'Haha',
+			name: '全部',
+			status: 'all',
+		},
+		{
+			name: '未指派',
 			status: 0,
 		},
 		{
-			title: '爱的圣堂',
-			pay_time: 1511331291,
-			amount: '5000.00',
-			address: 'Haha',
-			status: 0,
+			name: '进行中',
+			status: 1,
 		},
 		{
-			title: 'S型T台',
-			pay_time: 1511322765,
-			amount: '8000.00',
-			address: 'Haha',
-			status: 0,
-		},
-		{
-			title: '爱的圣堂',
-			pay_time: 1511321273,
-			amount: '10000.00',
-			address: 'Haha',
-			status: 0,
-		},
-		{
-			title: '爱的圣堂',
-			pay_time: 1511320723,
-			amount: '5000.00',
-			address: 'Haha',
-			status: 0,
-		},
-		{
-			title: '爱的圣堂',
-			pay_time: 1511320279,
-			amount: '15000.00',
-			address: 'Haha',
-			status: 0,
-		},
-		{
-			title: '爱的圣堂',
-			pay_time: 1511319740,
-			amount: '5000.00',
-			address: 'Haha',
-			status: 0,
-		},
-		{
-			title: '十里桃花',
-			pay_time: 1511319550,
-			amount: '200.00',
-			address: 'Haha',
-			status: 0,
+			name: '已完成',
+			status: 2,
 		},
 	],
-	status: 0,
+	actionText: '进行中', //默认显示(全部,未指派,进行中,已完成)这里要修改默认的值actionText/status/activeIndex三个参数修改
+	status: 1, //默认 数据过滤 (all,0,1,2)
+	activeIndex: 2, //默认 弹出层 高亮 (0,1,2,3)
 };
 const getters = {
-	filterlist: state => state.filterlist,
+	filterlist(state) {
+		if (state.status == 'all') {
+			return state.filterlist;
+		}
+		return state.filterlist.filter(n => n.status === state.status);
+	},
+	actions: state => state.actions,
+	actionText: state => state.actionText,
+	status: state => state.status,
+	activeIndex: state => state.activeIndex,
 };
 
-const mutations = {};
+const actions = {
+	filter_currentList_action({ commit }, params) {
+		commit('filter_currentList_mutations', params);
+	},
+};
 
-const actions = {};
+const mutations = {
+	filter_currentList_mutations(state, params) {
+		state.status = params.data.status;
+		state.actionText = params.data.name;
+		state.activeIndex = params.index;
+	},
+};
 
 export default {
 	state,

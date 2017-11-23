@@ -1,25 +1,25 @@
 <template>
-  <div class="question">
-    <!--<div class="title" :class="{startBg:startBg}" :style="changeBg">移动端常见的问题</div>-->
-    <div class="title">移动端常见的问题</div>
-    <!--<div class="content">-->
-    <!--<scroll ref="questionRef"-->
-    <!--:data="data"-->
-    <!--:probe-type="probeType"-->
-    <!--class="question-scroll"-->
-    <!--:listen-scroll="listenScroll"-->
-    <!--@scroll="scroll"-->
-    <!--&gt;-->
-    <ul class="question-ul">
-      <li v-for="(item,index) in data" :key="index">
-        <router-link tag="div" :to="{name:item.name}">
-          <span class="index">{{index + 1}}</span>{{item.title}}
-        </router-link>
-      </li>
-    </ul>
-    <!--</scroll>-->
-    <!--</div>-->
-  </div>
+	<div class="question">
+		<!--<div class="title" :class="{startBg:startBg}" :style="changeBg">移动端常见的问题</div>-->
+		<div class="title">移动端常见的问题</div>
+		<!--<div class="content">-->
+		<!--<scroll ref="questionRef"-->
+		<!--:data="data"-->
+		<!--:probe-type="probeType"-->
+		<!--class="question-scroll"-->
+		<!--:listen-scroll="listenScroll"-->
+		<!--@scroll="scroll"-->
+		<!--&gt;-->
+		<ul class="question-ul">
+			<li v-for="(item,index) in data" :key="index">
+				<router-link tag="div" :to="{name:item.name}">
+					<span class="index">{{index + 1}}</span>{{item.title}}
+				</router-link>
+			</li>
+		</ul>
+		<!--</scroll>-->
+		<!--</div>-->
+	</div>
 </template>
 <script>
 import Scroll from 'components/scroll/scroll';
@@ -75,6 +75,7 @@ export default {
 				{ name: 'fixtop2', title: '顶部固定2' },
 				{ name: 'changeRouterData', title: '动态更改的router-data' },
 				{ name: 'filterActionsheet', title: '过滤' },
+				{ name: 'filterActionsheetvuex', title: '过滤-vuex' },
 			],
 		};
 	},
