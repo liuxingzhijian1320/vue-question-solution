@@ -94,6 +94,8 @@ const fixtop2 = resolve => import('../views/fixTop-2/fixTop-2');
 
 const changeRouterData = resolve => import('../views/changeRouterData/changeRouterData');
 
+const mintuiPicker = resolve => import('../views/mint-ui-picker/mint-ui-picker');
+
 const filterActionsheet = resolve => import('../views/filter_actionsheet/filter_actionsheet');
 const filterActionsheetvuex = resolve => import('../views/filter_actionsheet_vuex/filter_actionsheet_vuex');
 
@@ -492,6 +494,14 @@ const router = new Router({
 				title: 'actionsheet过滤-vuex版本',
 			},
 			component: filterActionsheetvuex,
+		},
+		{
+			path: '/solution/mintuiPicker',
+			name: 'mintuiPicker',
+			meta: {
+				title: 'mint-ui-picker的效果',
+			},
+			component: mintuiPicker,
 		},
 		{
 			path: '*',

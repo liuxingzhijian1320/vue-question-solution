@@ -76,6 +76,7 @@ export default {
 				{ name: 'changeRouterData', title: '动态更改的router-data' },
 				{ name: 'filterActionsheet', title: '过滤' },
 				{ name: 'filterActionsheetvuex', title: '过滤-vuex' },
+				{ name: 'mintuiPicker', title: 'mint-ui-picker的效果' },
 			],
 		};
 	},
