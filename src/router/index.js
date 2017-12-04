@@ -90,13 +90,17 @@ const hammer = resolve => import('../views/hammer/hammer');
 const navScroll = resolve => import('../views/navScroll/navScroll');
 
 const fixtop = resolve => import('../views/fixTop/fixTop');
+
 const fixtop2 = resolve => import('../views/fixTop-2/fixTop-2');
+
+const stickUp = resolve => import('../views/stickUp/stickUp');
 
 const changeRouterData = resolve => import('../views/changeRouterData/changeRouterData');
 
 const mintuiPicker = resolve => import('../views/mint-ui-picker/mint-ui-picker');
 
 const filterActionsheet = resolve => import('../views/filter_actionsheet/filter_actionsheet');
+
 const filterActionsheetvuex = resolve => import('../views/filter_actionsheet_vuex/filter_actionsheet_vuex');
 
 import test from '../views/BScroll/test';
@@ -470,6 +474,14 @@ const router = new Router({
 				title: '顶部固定2',
 			},
 			component: fixtop2,
+		},
+		{
+			path: '/solution/stickUp',
+			name: 'stickUp',
+			meta: {
+				title: 'stickUp插件',
+			},
+			component: stickUp,
 		},
 		{
 			path: '/solution/changeRouterData',

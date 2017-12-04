@@ -73,6 +73,7 @@ export default {
 				{ name: 'navScroll', title: '联动的nav' },
 				{ name: 'fixtop', title: '顶部固定' },
 				{ name: 'fixtop2', title: '顶部固定2' },
+				{ name: 'stickUp', title: 'stickUp插件效果' },
 				{ name: 'changeRouterData', title: '动态更改的router-data' },
 				{ name: 'filterActionsheet', title: '过滤' },
 				{ name: 'filterActionsheetvuex', title: '过滤-vuex' },
