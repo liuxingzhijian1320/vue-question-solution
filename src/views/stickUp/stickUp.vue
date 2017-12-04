@@ -2,12 +2,12 @@
 	<div>
 		<header class="header" ref='header'>高度250</header>
 		<ul class="nav" :class="{isFixed:isFixed}" ref="nav">
-			<li class="item" v-for="(item,index) in new Array(4)" @click="selectItem(index)"
+			<li class="item" v-for="(item,index) in new Array(4)" :key="index" @click="selectItem(index)"
 			  :class="{'current':currentIndex===index}">{{index+1}}，高度50</li>
 		</ul>
 		<div class="fakeNavHeight" v-if="isFixed"></div>
 		<ul class="content">
-			<li class="tips" ref="foodList" v-for="(item,index) in new Array(4)">{{index+1}}</li>
+			<li class="tips" ref="foodList" v-for="(item,index) in new Array(4)" :key="index">{{index+1}}</li>
 		</ul>
 	</div>
 </template>
@@ -83,7 +83,7 @@ export default {
 		});
 		this.throttleScroll = throttle(this.handleScroll, 100);
 	},
-	deactivated() {
+	destroyed() {
 		//离开页面需要remove这个监听器，不然还是卡到爆。
 		window.removeEventListener('scroll', this.throttleScroll);
 	},

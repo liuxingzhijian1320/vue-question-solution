@@ -109,6 +109,10 @@ const router = new Router({
 	mode: 'hash', // ['history', 'hash']
 	linkActiveClass: 'active', // active class 名称
 	scrollBehavior(to, from, savedPosition) {
+		console.info(to);
+		if (to.name == 'stickUp' || to.name == 'fixtop2') {
+			return { x: 0, y: 0 };
+		}
 		// 后退页面时, 保留滚动位置
 		if (savedPosition) {
 			return savedPosition;
