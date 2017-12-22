@@ -154,6 +154,12 @@ const filterActionsheetvuex = resolve =>
 const canvasStar = resolve =>
     import ('../views/canvas/star');
 
+const mulSelect = resolve =>
+    import ('../views/mulSelect/mulSelect');
+
+const getJson = resolve =>
+    import ('../views/getJson/getJson');
+
 import test from '../views/BScroll/test';
 
 const router = new Router({
@@ -576,6 +582,22 @@ const router = new Router({
                 title: 'canvasStar 星星',
             },
             component: canvasStar,
+        },
+        {
+            path: '/solution/mulSelect',
+            name: 'mulSelect',
+            meta: {
+                title: 'mulSelect多重选择取消',
+            },
+            component: mulSelect,
+        },
+        {
+            path: '/solution/getJson',
+            name: 'getJson',
+            meta: {
+                title: '本地获取json的文件测试',
+            },
+            component: getJson,
         },
         {
             path: '*',

@@ -1,25 +1,25 @@
 <template>
-	<div class="question">
-		<!--<div class="title" :class="{startBg:startBg}" :style="changeBg">移动端常见的问题</div>-->
-		<div class="title">移动端常见的问题</div>
-		<!--<div class="content">-->
-		<!--<scroll ref="questionRef"-->
-		<!--:data="data"-->
-		<!--:probe-type="probeType"-->
-		<!--class="question-scroll"-->
-		<!--:listen-scroll="listenScroll"-->
-		<!--@scroll="scroll"-->
-		<!--&gt;-->
-		<ul class="question-ul">
-			<li v-for="(item,index) in data" :key="index">
-				<router-link tag="div" :to="{name:item.name}">
-					<span class="index">{{index + 1}}</span>{{item.title}}
-				</router-link>
-			</li>
-		</ul>
-		<!--</scroll>-->
-		<!--</div>-->
-	</div>
+  <div class="question">
+    <!--<div class="title" :class="{startBg:startBg}" :style="changeBg">移动端常见的问题</div>-->
+    <div class="title">移动端常见的问题</div>
+    <!--<div class="content">-->
+    <!--<scroll ref="questionRef"-->
+    <!--:data="data"-->
+    <!--:probe-type="probeType"-->
+    <!--class="question-scroll"-->
+    <!--:listen-scroll="listenScroll"-->
+    <!--@scroll="scroll"-->
+    <!--&gt;-->
+    <ul class="question-ul">
+      <li v-for="(item,index) in data" :key="index">
+        <router-link tag="div" :to="{name:item.name}">
+          <span class="index">{{index + 1}}</span>{{item.title}}
+        </router-link>
+      </li>
+    </ul>
+    <!--</scroll>-->
+    <!--</div>-->
+  </div>
 </template>
 <script>
 import Scroll from 'components/scroll/scroll';
@@ -79,6 +79,8 @@ export default {
         { name: 'filterActionsheetvuex', title: '过滤-vuex' },
         { name: 'mintuiPicker', title: 'mint-ui-picker的效果' },
         { name: 'canvasStar', title: 'canvasStar 星星' },
+        { name: 'mulSelect', title: 'mulSelect多重选择取消' },
+        { name: 'getJson', title: '本地获取json的文件测试' },
       ],
     };
   },
