@@ -163,6 +163,9 @@ const getJson = resolve =>
 const H5ToApp = resolve =>
     import ('../views/H5ToApp/H5ToApp');
 
+const upload = resolve =>
+    import ('../views/upload/upload');
+
 import test from '../views/BScroll/test';
 
 const router = new Router({
@@ -609,6 +612,14 @@ const router = new Router({
                 title: 'h5跳转app的操作',
             },
             component: H5ToApp,
+        },
+        {
+            path: '/solution/upload',
+            name: 'upload',
+            meta: {
+                title: '上传图片',
+            },
+            component: upload,
         },
         {
             path: '*',
