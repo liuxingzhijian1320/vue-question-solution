@@ -57,7 +57,7 @@ export default {
         { name: 'test', title: 'test1' },
         { name: 'bscrollrefresh', title: '上拉刷新下拉加载' },
         { name: 'navigatoruserAgent', title: '浏览器版本' },
-        { name: 'selectSearch', title: '即实搜索' },
+        { name: 'searchAuto', title: '边输入边搜索' },
         { name: 'fadeInNav', title: '渐变的nav' },
         { name: 'pullupimgbig', title: '下拉图片变大' },
         { name: 'toggle', title: '上下收缩' },

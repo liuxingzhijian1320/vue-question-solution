@@ -79,8 +79,8 @@ const bscrollrefresh = resolve =>
 const navigatoruserAgent = resolve =>
     import ('../views/navigator_userAgent/navigator.userAgent');
 
-const selectSearch = resolve =>
-    import ('../views/selectSearch/select.search');
+const searchAuto = resolve =>
+    import ('../views/searchAuto/searchAuto');
 
 const fadeInNav = resolve =>
     import ('../views/fadeIn.nav/fadeIn.nav');
@@ -390,12 +390,12 @@ const router = new Router({
             component: test,
         },
         {
-            path: '/solution/selectSearch',
-            name: 'selectSearch',
+            path: '/solution/searchAuto',
+            name: 'searchAuto',
             meta: {
-                title: '即实搜索',
+                title: '边输入边搜索',
             },
-            component: selectSearch,
+            component: searchAuto,
         },
         {
             path: '/solution/fadeInNav',
