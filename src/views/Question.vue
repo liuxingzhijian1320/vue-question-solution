@@ -81,6 +81,7 @@ export default {
         { name: 'canvasStar', title: 'canvasStar 星星' },
         { name: 'mulSelect', title: 'mulSelect多重选择取消' },
         { name: 'getJson', title: '本地获取json的文件测试' },
+        { name: 'H5ToApp', title: 'h5跳转app的操作' },
       ],
     };
   },

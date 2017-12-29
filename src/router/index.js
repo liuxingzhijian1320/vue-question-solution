@@ -160,6 +160,9 @@ const mulSelect = resolve =>
 const getJson = resolve =>
     import ('../views/getJson/getJson');
 
+const H5ToApp = resolve =>
+    import ('../views/H5ToApp/H5ToApp');
+
 import test from '../views/BScroll/test';
 
 const router = new Router({
@@ -598,6 +601,14 @@ const router = new Router({
                 title: '本地获取json的文件测试',
             },
             component: getJson,
+        },
+        {
+            path: '/solution/H5ToApp',
+            name: 'H5ToApp',
+            meta: {
+                title: 'h5跳转app的操作',
+            },
+            component: H5ToApp,
         },
         {
             path: '*',
