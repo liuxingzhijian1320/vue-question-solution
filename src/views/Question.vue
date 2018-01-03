@@ -11,7 +11,7 @@
     <!--@scroll="scroll"-->
     <!--&gt;-->
     <ul class="question-ul">
-      <li v-for="(item,index) in data" :key="index">
+      <li v-for="(item,index) in data" :key="index" class="question-li" :class="highlight(item)">
         <router-link tag="div" :to="{name:item.name}">
           <span class="index">{{index + 1}}</span>{{item.title}}
         </router-link>
@@ -45,7 +45,7 @@ export default {
         { name: 'progresscircle', title: 'progress 圆形' },
         { name: 'progressTest', title: 'progress 测试' },
         { name: 'password', title: 'password 密码框' },
-        { name: 'cssEffect', title: 'css效果效果' },
+        { name: 'magicalCss', title: '神奇的css' },
         { name: 'localstorage', title: 'localstorage store/expire 储存信息的插件' },
         { name: 'redpacket', title: 'redpacket 短信倒计时 文字上下轮播css写法' },
         { name: 'swiper1', title: '轮播图' },
@@ -87,6 +87,11 @@ export default {
     };
   },
   methods: {
+    highlight(item) {
+      if (item.name == 'magicalCss') {
+        return 'highlightClass';
+      }
+    },
     //      scroll(pos){
     //        this.scrollY = pos.y;
     //        //console.info(pos.y)
@@ -136,10 +141,13 @@ export default {
     height: 100%;
   }
   .question-ul {
-    li {
+    .question-li {
       height: 0.7rem;
       line-height: 0.7rem;
       padding-left: 0.4rem;
+      &.highlightClass {
+        color: red;
+      }
       &:after {
         content: '';
         width: 100%;

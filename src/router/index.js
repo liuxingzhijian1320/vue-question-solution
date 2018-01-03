@@ -46,8 +46,8 @@ const progressTest = resolve =>
 const password = resolve =>
     import ('../views/password/password-1');
 
-const cssEffect = resolve =>
-    import ('../views/cssEffect/cssEffect');
+const magicalCss = resolve =>
+    import ('../views/magicalCss/magicalCss');
 
 const localstorage = resolve =>
     import ('../views/local.storage/local.storage');
@@ -114,6 +114,9 @@ const map1 = resolve =>
 
 const map2 = resolve =>
     import ('../views/map/map_2');
+
+const searchLocation = resolve =>
+    import ('../views/map/searchLocation');
 
 const loadmore = resolve =>
     import ('../views/loadmore/loadmore');
@@ -294,12 +297,12 @@ const router = new Router({
             component: password,
         },
         {
-            path: '/solution/cssEffect',
-            name: 'cssEffect',
+            path: '/solution/magicalCss',
+            name: 'magicalCss',
             meta: {
-                title: 'css的效果',
+                title: '神奇的css',
             },
-            component: cssEffect,
+            component: magicalCss,
         },
         {
             path: '/solution/localstorage',
@@ -486,6 +489,14 @@ const router = new Router({
             component: map2,
         },
         {
+            path: '/solution/searchLocation',
+            name: 'searchLocation',
+            meta: {
+                title: '高德地图搜索与定位',
+            },
+            component: searchLocation,
+        },
+        {
             path: '/solution/loadmore',
             name: 'loadmore',
             meta: {
@@ -621,6 +632,7 @@ const router = new Router({
             },
             component: upload,
         },
+
         {
             path: '*',
             redirect: {
