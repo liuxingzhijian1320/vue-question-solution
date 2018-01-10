@@ -1,6 +1,6 @@
 # solution
 
-> A Vue.js project
+> A Vue.js project（此项目将不再更新至GitHub，因为许多效果和接口为真是地址，现在转为码云私有仓库）
 
 ## Build Setup
 
