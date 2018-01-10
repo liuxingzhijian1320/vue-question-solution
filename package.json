@@ -1,0 +1,24 @@
+{
+  "name": "vue-question-solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "express": "^4.16.2",
+    "ip": "^1.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuxingzhijian1320/vue-question-solution.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liuxingzhijian1320/vue-question-solution/issues"
+  },
+  "homepage": "https://github.com/liuxingzhijian1320/vue-question-solution#readme"
+}
