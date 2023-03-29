@@ -11,7 +11,8 @@
     <!--@scroll="scroll"-->
     <!--&gt;-->
     <ul class="question-ul">
-      <li v-for="(item,index) in data" :key="index" class="question-li" :class="highlight(item)">
+      <li v-for="(item,index) in data" :key="index" class="question-li"
+        :class="highlight(item)">
         <router-link tag="div" :to="{name:item.name}">
           <span class="index">{{index + 1}}</span>{{item.title}}
         </router-link>
@@ -22,74 +23,81 @@
   </div>
 </template>
 <script>
-import Scroll from 'components/scroll/scroll';
+import Scroll from "components/scroll/scroll";
 export default {
-  name: 'questions',
+  name: "questions",
   data() {
     return {
       probeType: 3,
       listenScroll: true,
       scrollY: 0,
-      op: '',
+      op: "",
       startBg: true,
       data: [
-        { name: 'stickyfooter', title: 'Sticky Footer(一)' },
-        { name: 'stickyfooter2', title: 'Sticky Footer(二)' },
-        { name: 'stickyfooterflex', title: 'Sticky Footer(三)' },
-        { name: 'andiosfixed', title: '安卓ios-fixed的兼容' },
-        { name: 'vuexmodal', title: 'vuex modal' },
-        { name: 'vuexmodalstop', title: 'vuexmodalstop' },
-        { name: 'tweenSimple', title: 'tween 数字动画效果' },
-        { name: 'TweenMany', title: 'tween 多个数字动画效果' },
-        { name: 'progress', title: 'progress 进度条111' },
-        { name: 'progresscircle', title: 'progress 圆形' },
-        { name: 'progressTest', title: 'progress 测试' },
-        { name: 'password', title: 'password 密码框' },
-        { name: 'magicalCss', title: '神奇的css' },
-        { name: 'localstorage', title: 'localstorage store/expire 储存信息的插件' },
-        { name: 'redpacket', title: 'redpacket 短信倒计时 文字上下轮播css写法' },
-        { name: 'swiper1', title: '轮播图' },
-        { name: 'swiper2', title: '轮播图（组件）' },
-        { name: 'bullet', title: 'bullet 弹幕' },
-        { name: 'bscrollboth', title: 'bscroll左右联动' },
-        { name: 'bscrollbook', title: 'bscroll 通讯录' },
-        { name: 'bscrolltop', title: 'bscroll 上下联动' },
-        { name: 'test', title: 'test1' },
-        { name: 'bscrollrefresh', title: '上拉刷新下拉加载' },
-        { name: 'navigatoruserAgent', title: '浏览器版本' },
-        { name: 'searchAuto', title: '边输入边搜索' },
-        { name: 'fadeInNav', title: '渐变的nav' },
-        { name: 'pullupimgbig', title: '下拉图片变大' },
-        { name: 'toggle', title: '上下收缩' },
-        { name: 'video', title: '视频组件' },
-        { name: 'star', title: '五星评价' },
-        { name: 'proxyTable', title: '反向代理' },
-        { name: 'alerttoastr', title: '小组件' },
-        { name: 'map', title: '高德地图' },
-        { name: 'loadmore', title: '加载更多-点击' },
-        { name: 'loadmore2', title: '加载更多-滑动' },
-        { name: 'occupy', title: '文字占位符' },
-        { name: 'hammer', title: '多指触控' },
-        { name: 'navScroll', title: '联动的nav' },
-        { name: 'fixtop', title: '顶部固定' },
-        { name: 'fixtop2', title: '顶部固定2' },
-        { name: 'stickUp', title: 'stickUp插件效果' },
-        { name: 'changeRouterData', title: '动态更改的router-data' },
-        { name: 'filterActionsheet', title: '过滤' },
-        { name: 'filterActionsheetvuex', title: '过滤-vuex' },
-        { name: 'mintuiPicker', title: 'mint-ui-picker的效果' },
-        { name: 'canvasStar', title: 'canvasStar 星星' },
-        { name: 'mulSelect', title: 'mulSelect多重选择取消' },
-        { name: 'getJson', title: '本地获取json的文件测试' },
-        { name: 'H5ToApp', title: 'h5跳转app的操作' },
-        { name: 'upload', title: '上传图片' },
+        { name: "stickyfooter", title: "Sticky Footer(一)" },
+        { name: "stickyfooter2", title: "Sticky Footer(二)" },
+        { name: "stickyfooterflex", title: "Sticky Footer(三)" },
+        { name: "andiosfixed", title: "安卓ios-fixed的兼容" },
+        { name: "vuexmodal", title: "vuex modal" },
+        { name: "vuexmodalstop", title: "vuexmodalstop" },
+        { name: "tweenSimple", title: "tween 数字动画效果" },
+        { name: "TweenMany", title: "tween 多个数字动画效果" },
+        { name: "progress", title: "progress 进度条111" },
+        { name: "progresscircle", title: "progress 圆形" },
+        { name: "progressTest", title: "progress 测试" },
+        { name: "password", title: "password 密码框" },
+        { name: "magicalCss", title: "神奇的css" },
+        {
+          name: "localstorage",
+          title: "localstorage store/expire 储存信息的插件",
+        },
+        {
+          name: "redpacket",
+          title: "redpacket 短信倒计时 文字上下轮播css写法",
+        },
+        { name: "swiper1", title: "轮播图" },
+        { name: "swiper2", title: "轮播图（组件）" },
+        { name: "bullet", title: "bullet 弹幕" },
+        { name: "bscrollboth", title: "bscroll左右联动" },
+        { name: "bscrollbook", title: "bscroll 通讯录" },
+        { name: "bscrolltop", title: "bscroll 上下联动" },
+        { name: "test", title: "test1" },
+        { name: "bscrollrefresh", title: "上拉刷新下拉加载" },
+        { name: "navigatoruserAgent", title: "浏览器版本" },
+        { name: "searchAuto", title: "边输入边搜索" },
+        { name: "fadeInNav", title: "渐变的nav" },
+        { name: "pullupimgbig", title: "下拉图片变大" },
+        { name: "toggle", title: "上下收缩" },
+        { name: "video", title: "视频组件" },
+        { name: "star", title: "五星评价" },
+        { name: "proxyTable", title: "反向代理" },
+        { name: "alerttoastr", title: "小组件" },
+        { name: "map", title: "高德地图" },
+        { name: "loadmore", title: "加载更多-点击" },
+        { name: "loadmore2", title: "加载更多-滑动" },
+        { name: "occupy", title: "文字占位符" },
+        { name: "hammer", title: "多指触控" },
+        { name: "navScroll", title: "联动的nav" },
+        { name: "fixtop", title: "顶部固定" },
+        { name: "fixtop2", title: "顶部固定2" },
+        { name: "stickUp", title: "stickUp插件效果" },
+        { name: "changeRouterData", title: "动态更改的router-data" },
+        { name: "filterActionsheet", title: "过滤" },
+        { name: "filterActionsheetvuex", title: "过滤-vuex" },
+        { name: "mintuiPicker", title: "mint-ui-picker的效果" },
+        { name: "canvasStar", title: "canvasStar 星星" },
+        { name: "mulSelect", title: "mulSelect多重选择取消" },
+        { name: "getJson", title: "本地获取json的文件测试" },
+        { name: "H5ToApp", title: "h5跳转app的操作" },
+        { name: "upload", title: "上传图片" },
+        { name: "sku", title: "商品sku" },
       ],
     };
   },
   methods: {
     highlight(item) {
-      if (item.name == 'magicalCss') {
-        return 'highlightClass';
+      if (item.name == "magicalCss") {
+        return "highlightClass";
       }
     },
     //      scroll(pos){
@@ -149,7 +157,7 @@ export default {
         color: red;
       }
       &:after {
-        content: '';
+        content: "";
         width: 100%;
         height: 1px;
         transform: scaleY(0.5);
