@@ -126,6 +126,7 @@ const H5ToApp = (resolve) => import("../views/H5ToApp/H5ToApp");
 const upload = (resolve) => import("../views/upload/upload");
 
 const sku = (resolve) => import("../views/sku/sku");
+const sku2 = (resolve) => import("../views/sku/sku2");
 
 import test from "../views/BScroll/test";
 
@@ -598,6 +599,15 @@ const router = new Router({
         title: "商品sku",
       },
       component: sku,
+    },
+
+    {
+      path: "/solution/sku2",
+      name: "sku2",
+      meta: {
+        title: "商品sku2",
+      },
+      component: sku2,
     },
 
     {

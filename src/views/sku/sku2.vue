@@ -50,27 +50,17 @@
         </div>
       </div>
     </div>
-
-    <div class="item">
-      <div class='title'>数量</div>
-      <div class='spec'>
-        <button @click="increment">减少</button>
-        <button>{{ count }}</button>
-        <button @click="addcreament">增加</button>
-      </div>
-    </div>
   </div>
 
 </template>
 <script>
 // 第一步引入数据 这里引入的数据就是上面的 specList  skuList
-import { specList, skuList } from "./data";
+import { specList, skuList } from "./data2";
 
 export default {
   name: "App",
   data() {
     return {
-      count: 1,
       specList: [],
       skuList: [],
       selectSpec: {}, // 选择数据的对象 将已选的数据放在这个对象里面记录下来  用对象的好处在下面深拷贝处就能体验到了
@@ -84,8 +74,7 @@ export default {
     specList.forEach((item) => {
       this.$set(this.selectSpec, item.title, "");
     });
-    this.$set(this.selectSpec, "数量", this.count);
-    console.log("selectSpec", { ...this.selectSpec });
+    // console.log("selectSpec", { ...this.selectSpec });
 
     // 将规格数据处理成我们视图所需要的数据类型
     this.specList = specList.map((item) => {
@@ -93,29 +82,15 @@ export default {
         title: item.title,
         list: item.list.map((code) => {
           return {
-            ...code,
+            name: code,
             //  判断是否可以选择
             //  这里相当于init 初始化数据  this.isAble() 核心判断逻辑
-            able: this.isAble(item.title, code.name), // 注释的调试看逻辑代码 false
+            able: this.isAble(item.title, code), // 注释的调试看逻辑代码 false
           };
         }),
       };
     });
-
-    // this.specList = specList.map((item) => {
-    //   return {
-    //     title: item.title,
-    //     list: item.list.map((code) => {
-    //       return {
-    //         name: code,
-    //         //  判断是否可以选择
-    //         //  这里相当于init 初始化数据  this.isAble() 核心判断逻辑
-    //         able: this.isAble(item.title, code), // 注释的调试看逻辑代码 false
-    //       };
-    //     }),
-    //   };
-    // });
-    console.log("specList", this.specList);
+    // console.log("specList", [...this.specList]);
     // 注释的调试看逻辑代码
     // this.selectSpec = {
     //   颜色: "红色",
@@ -125,40 +100,16 @@ export default {
     // this.isAble("颜色", "红色");
   },
   methods: {
-    checkSpec() {
-      for (let key in this.selectSpec) {
-        console.log(123, this.selectSpec[key]);
-        if (!this.selectSpec[key]) {
-          alert("请选择规格");
-
-          return false;
-          // throw new Error("请选择规格");
-        }
-      }
-    },
-
-    increment() {
-      this.checkSpec();
-      if (this.count > 1) {
-        this.count--;
-      }
-    },
-    addcreament() {
-      this.checkSpec();
-      if (this.count > 0) {
-        this.count++;
-      }
-    },
     // 核心判断逻辑
     // 判断规格是否可以被选择  核心函数 key当前的规格的 title value规格值
     isAble(key, value) {
-      // console.log("key, value", key, value);
+      console.log("key, value", key, value);
       // 深拷贝 避免被影响
       var copySelectSpec = JSON.parse(JSON.stringify(this.selectSpec));
 
       // 用对象的好处就在这了 直接赋值当前验证项
       copySelectSpec[key] = value;
-      // console.log("copySelectSpec", copySelectSpec, key, value);
+      console.log("copySelectSpec", copySelectSpec, key, value);
       // 用数组的 some 方法 效率高 符合条件直接退出循环
       let flag = this.skuList.some((item) => {
         // 条件判断 核心逻辑判断
@@ -169,12 +120,10 @@ export default {
         // 只有当前验证的所有项满足sku中的规格或者其他规格为空时 即满足条件
         // 稍微有点复杂 把注释的调试代码打开就调试下就可以看懂了
         for (let k in copySelectSpec) {
-          // console.log(copySelectSpec[k])  // 注释的调试看逻辑代码
-          // console.log(123, item.specs.includes(copySelectSpec[k]));
+          //  console.log(copySelectSpec[k])  // 注释的调试看逻辑代码
           if (
             copySelectSpec[k] != "" &&
             item.specs.includes(copySelectSpec[k])
-            // item.specs.findIndex((c) => c.name === copySelectSpec[k]) > -1
           ) {
             // console.log(item)
             i++;
@@ -201,7 +150,7 @@ export default {
       this.specList.forEach((item) => {
         item.list.forEach((code) => {
           code.able = this.isAble(item.title, code.name);
-          // console.log(code.name, code.able);
+          console.log(code.name, code.able);
         });
       });
     },
